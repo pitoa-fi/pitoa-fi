@@ -1,0 +1,1304 @@
+<!DOCTYPE html><!-- BEGIN app/views/layouts/application.html.erb --><html><head>
+    <title>Pitoa</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="0COXlrRDMkBA308_p_apuIYHyjQcSE2XCjN1GZyrwgPrkciMbIisoFyaQ2IUrqMpSuHvX5hSpXj22TAM9YnvKw">
+    
+
+      <style>
+    .wizard-step {
+      animation: slideIn 0.5s ease-out;
+    }
+
+    .wizard-step.fade-out {
+      animation: fadeOut 0.3s ease-in forwards;
+    }
+
+    .wizard-step.fade-in {
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateX(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  </style>
+
+
+
+    <link rel="icon" href="../../../icon.png" type="image/png">
+    <link rel="icon" href="../../../icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../../../icon.png">
+
+    <link rel="stylesheet" href="../../../assets/application-6bfb772a.css" data-turbo-track="reload">
+<link rel="stylesheet" href="../../../assets/application.tailwind-ee41ae41.css" data-turbo-track="reload">
+    <script src="../../../assets/application-7385f116.js" data-turbo-track="reload" type="module"></script>
+  </head>
+
+  <body>
+    <!-- BEGIN app/views/wizard/journey.html.erb --><div class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50" data-controller="wizard wizard-progress" data-wizard-stage-value="scaling" data-wizard-total-steps-value="5" data-wizard-progress-stage-value="scaling">
+
+  <!-- Progress Bar -->
+  <div class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-4">
+      <div class="flex items-center justify-between mb-3">
+        <span class="text-sm font-medium text-gray-700" data-wizard-target="progress">Step 1 of 5</span>
+        <div class="flex items-center space-x-2">
+          <span class="text-xs text-gray-500">Use arrow keys to navigate</span>
+          <a class="text-sm text-gray-600 hover:text-gray-900 transition-colors" href="../../../wizard/start">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+</a>        </div>
+      </div>
+      <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+        <div class="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-500 ease-out" data-wizard-target="progressBar" style="width: 20.0%" role="progressbar" aria-valuenow="20.0" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="max-w-4xl mx-auto px-4 py-12">
+
+    <!-- Step 1: Welcome & Context -->
+    <div class="wizard-step" data-wizard-target="step">
+      <div class="text-center mb-12">
+        <div class="inline-block mb-6">
+          <div class="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Great choice!
+        </h1>
+
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed mb-8">
+          Time to grow. Learn B2B sales techniques, copywriting, and growth loops to accelerate your traction.
+        </p>
+
+        <div class="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">
+            Your Personalized Toolkit
+          </h2>
+          <p class="text-gray-600 mb-6">
+            We've selected 3 frameworks that will help you succeed at this stage.
+            Each tool builds on the previous one, creating a complete validation and growth system.
+          </p>
+
+          <div class="flex flex-wrap justify-center gap-3">
+              <span class="px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-full text-sm font-medium shadow-md">
+                Conversion Copywriting
+              </span>
+              <span class="px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-full text-sm font-medium shadow-md">
+                SPIN Selling Framework
+              </span>
+              <span class="px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-full text-sm font-medium shadow-md">
+                Growth &amp; Validation Loops
+              </span>
+          </div>
+        </div>
+
+        <button data-action="click->wizard#next" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
+          Let's Start
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Tool Steps -->
+      <div class="wizard-step hidden" data-wizard-target="step">
+        <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+          <!-- Tool Header -->
+          <div class="bg-gradient-to-r from-orange-500 to-orange-600 p-8 text-white">
+            <div class="flex items-start justify-between mb-4">
+              <div class="flex-1">
+                <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-3">
+                  Framework 1 of 3
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-2">
+                  Conversion Copywriting
+                </h2>
+              </div>
+              <div class="flex-shrink-0 ml-4">
+                <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
+                  <span class="text-3xl font-bold">1</span>
+                </div>
+              </div>
+            </div>
+            <p class="text-xl text-white/90">
+              Framework for writing clear, compelling copy that converts visitors into customers using proven psychological triggers.
+            </p>
+          </div>
+
+          <!-- Tool Content -->
+          <div class="p-8 md:p-12">
+            <div class="prose prose-lg max-w-none mb-8">
+              <p>Great copy follows a formula: capture attention with a clear headline, articulate the problem, present your solution,
+<br>show proof it works, overcome objections, and create urgency. Use frameworks like PAS (Problem-Agitate-Solution),
+<br>AIDA (Attention-Interest-Desire-Action), or the Before-After-Bridge method.
+</p>
+            </div>
+
+            <!-- Interactive Template -->
+            <div class="mb-8">
+                <!-- BEGIN app/views/wizard/_copywriting_template.html.erb --><div class="space-y-6">
+
+  <!-- Copywriting Frameworks -->
+  <div class="grid md:grid-cols-2 gap-6">
+
+    <!-- PAS Framework -->
+    <div class="bg-white rounded-2xl p-6 border-2 border-gray-200 shadow-lg">
+      <h3 class="text-lg font-bold text-gray-900 mb-4">PAS Framework</h3>
+      <div class="space-y-4">
+        <div class="border-l-4 border-red-500 pl-4">
+          <h4 class="font-bold text-red-700 mb-1">Problem</h4>
+          <p class="text-sm text-gray-600 mb-2">Identify the pain point clearly</p>
+          <p class="text-xs text-gray-500 italic">"Managing your team's time off is a spreadsheet nightmare."</p>
+        </div>
+
+        <div class="border-l-4 border-orange-500 pl-4">
+          <h4 class="font-bold text-orange-700 mb-1">Agitate</h4>
+          <p class="text-sm text-gray-600 mb-2">Make the problem feel urgent</p>
+          <p class="text-xs text-gray-500 italic">"Double bookings. Lost requests. Angry employees. You're stuck playing email ping-pong."</p>
+        </div>
+
+        <div class="border-l-4 border-green-500 pl-4">
+          <h4 class="font-bold text-green-700 mb-1">Solution</h4>
+          <p class="text-sm text-gray-600 mb-2">Present your product as the answer</p>
+          <p class="text-xs text-gray-500 italic">"TimeOff makes leave management effortless. One click approvals, automated sync, zero spreadsheets."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- AIDA Framework -->
+    <div class="bg-white rounded-2xl p-6 border-2 border-gray-200 shadow-lg">
+      <h3 class="text-lg font-bold text-gray-900 mb-4">AIDA Framework</h3>
+      <div class="space-y-4">
+        <div class="border-l-4 border-blue-500 pl-4">
+          <h4 class="font-bold text-blue-700 mb-1">Attention</h4>
+          <p class="text-sm text-gray-600 mb-2">Stop the scroll with a hook</p>
+          <p class="text-xs text-gray-500 italic">"Hiring developers takes 90 days. We do it in 48 hours."</p>
+        </div>
+
+        <div class="border-l-4 border-purple-500 pl-4">
+          <h4 class="font-bold text-purple-700 mb-1">Interest</h4>
+          <p class="text-sm text-gray-600 mb-2">Show how it works</p>
+          <p class="text-xs text-gray-500 italic">"Browse 500+ pre-vetted profiles. Message instantly. Start interviews today."</p>
+        </div>
+
+        <div class="border-l-4 border-pink-500 pl-4">
+          <h4 class="font-bold text-pink-700 mb-1">Desire</h4>
+          <p class="text-sm text-gray-600 mb-2">Paint the outcome</p>
+          <p class="text-xs text-gray-500 italic">"Skip the 6-week recruiting slog. Get back to building your product."</p>
+        </div>
+
+        <div class="border-l-4 border-red-500 pl-4">
+          <h4 class="font-bold text-red-700 mb-1">Action</h4>
+          <p class="text-sm text-gray-600 mb-2">Clear call-to-action</p>
+          <p class="text-xs text-gray-500 italic">"Browse developers now →"</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Before-After-Bridge -->
+  <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-6 border-2 border-purple-200">
+    <h3 class="text-xl font-bold text-gray-900 mb-4">Before-After-Bridge</h3>
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="bg-white rounded-xl p-4">
+        <h4 class="font-bold text-gray-900 mb-2">Before</h4>
+        <p class="text-sm text-gray-600 mb-3">Describe their current pain</p>
+        <div class="bg-red-50 rounded p-3 text-xs text-gray-700">
+          "Right now, you're manually tracking invoices in spreadsheets. It takes hours each week, mistakes slip through, and clients get frustrated with late bills."
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl p-4">
+        <h4 class="font-bold text-gray-900 mb-2">After</h4>
+        <p class="text-sm text-gray-600 mb-3">Show the transformation</p>
+        <div class="bg-green-50 rounded p-3 text-xs text-gray-700">
+          "Imagine invoices that send themselves on time, every time. Payments tracked automatically. No more spreadsheet hell. Just effortless billing."
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl p-4">
+        <h4 class="font-bold text-gray-900 mb-2">Bridge</h4>
+        <p class="text-sm text-gray-600 mb-3">Your product is the bridge</p>
+        <div class="bg-blue-50 rounded p-3 text-xs text-gray-700">
+          "InvoiceFlow automates your entire billing workflow. Set it once, forget it forever. Join 5,000+ freelancers who bill on autopilot."
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Headline Formulas -->
+  <div class="bg-white rounded-2xl p-6 border-2 border-gray-200 shadow-lg">
+    <h3 class="text-xl font-bold text-gray-900 mb-4">Proven Headline Formulas</h3>
+    <div class="space-y-3">
+      <div class="p-4 bg-gray-50 rounded-xl">
+        <h4 class="font-bold text-gray-900 mb-2">[Do Something Hard] in [Short Time]</h4>
+        <p class="text-sm text-gray-600">"Build a landing page in 10 minutes"</p>
+      </div>
+
+      <div class="p-4 bg-gray-50 rounded-xl">
+        <h4 class="font-bold text-gray-900 mb-2">[Achieve Outcome] Without [Common Pain]</h4>
+        <p class="text-sm text-gray-600">"Grow your email list without annoying popups"</p>
+      </div>
+
+      <div class="p-4 bg-gray-50 rounded-xl">
+        <h4 class="font-bold text-gray-900 mb-2">The [Adjective] Way to [Achieve Goal]</h4>
+        <p class="text-sm text-gray-600">"The fastest way to find product-market fit"</p>
+      </div>
+
+      <div class="p-4 bg-gray-50 rounded-xl">
+        <h4 class="font-bold text-gray-900 mb-2">[Number] [Ways/Secrets/Tips] to [Benefit]</h4>
+        <p class="text-sm text-gray-600">"7 proven ways to double your conversion rate"</p>
+      </div>
+
+      <div class="p-4 bg-gray-50 rounded-xl">
+        <h4 class="font-bold text-gray-900 mb-2">Get [Benefit] in [Timeframe] or [Guarantee]</h4>
+        <p class="text-sm text-gray-600">"Get your first customer in 30 days or your money back"</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Power Words -->
+  <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 border-2 border-amber-200">
+    <h3 class="text-xl font-bold text-gray-900 mb-4">Power Words That Convert</h3>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div class="text-center p-3 bg-white rounded-lg">
+        <span class="font-bold text-blue-600">Instant</span>
+      </div>
+      <div class="text-center p-3 bg-white rounded-lg">
+        <span class="font-bold text-purple-600">Proven</span>
+      </div>
+      <div class="text-center p-3 bg-white rounded-lg">
+        <span class="font-bold text-green-600">Effortless</span>
+      </div>
+      <div class="text-center p-3 bg-white rounded-lg">
+        <span class="font-bold text-red-600">Limited</span>
+      </div>
+      <div class="text-center p-3 bg-white rounded-lg">
+        <span class="font-bold text-indigo-600">Exclusive</span>
+      </div>
+      <div class="text-center p-3 bg-white rounded-lg">
+        <span class="font-bold text-pink-600">Guaranteed</span>
+      </div>
+      <div class="text-center p-3 bg-white rounded-lg">
+        <span class="font-bold text-orange-600">Simple</span>
+      </div>
+      <div class="text-center p-3 bg-white rounded-lg">
+        <span class="font-bold text-teal-600">Results</span>
+      </div>
+    </div>
+    <p class="text-sm text-gray-600 mt-4">Use sparingly. One power word per headline. Overuse kills credibility.</p>
+  </div>
+
+</div>
+<!-- END app/views/wizard/_copywriting_template.html.erb -->
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="bg-gray-50 rounded-2xl p-6 mb-8">
+              <h3 class="text-lg font-semibold text-gray-900 mb-4">Key Metrics to Track</h3>
+              <div class="grid md:grid-cols-3 gap-4">
+                  <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-700">Message Clarity Score</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-700">Value Prop Strength</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-700">CTA Conversion Rate</span>
+                  </div>
+              </div>
+            </div>
+
+            <!-- Actionable Next Steps -->
+            <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 mb-8 border-2 border-green-200" data-wizard-progress-current-tool-value="copywriting">
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex items-start space-x-3">
+                  <svg class="w-6 h-6 text-green-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <div>
+                    <h4 class="font-semibold text-gray-900 mb-2">Your Action Plan</h4>
+                    <p class="text-sm text-gray-600 mb-4">Complete these steps to implement Conversion Copywriting in your startup:</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-3" data-wizard-progress-target="actionItem">
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox" data-wizard-progress-target="completionCheckbox" data-action="change->wizard-progress#toggleActionItem" data-action-id="copy_audit" class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Audit your current copy</strong> - Does it focus on benefits (not features)? Is the CTA clear?
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox" data-wizard-progress-target="completionCheckbox" data-action="change->wizard-progress#toggleActionItem" data-action-id="copy_rewrite" class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Rewrite using PAS or AIDA</strong> - Pick one framework and apply it to your landing page headline + body
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox" data-wizard-progress-target="completionCheckbox" data-action="change->wizard-progress#toggleActionItem" data-action-id="copy_ab_test" class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>A/B test 2 headlines</strong> - Send equal traffic to each version and measure which converts better
+                    </span>
+                  </label>
+
+              </div>
+
+              <!-- Progress Summary -->
+              <div class="mt-4 pt-4 border-t border-green-200">
+                <p class="text-sm text-gray-600" data-wizard-progress-target="progressIndicator">
+                  0/3 actions completed
+                </p>
+              </div>
+
+              <!-- Mark as Complete Button -->
+              <div class="mt-4">
+                <button data-action="click->wizard-progress#markToolCompleted" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-600 to-green-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  Mark Framework as Complete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex items-center justify-between mt-8">
+          <button data-action="click->wizard#previous" data-wizard-target="prevBtn" class="inline-flex items-center px-6 py-3 bg-white text-gray-700 font-semibold rounded-xl border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50 transition-all duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous
+          </button>
+
+          <button data-action="click->wizard#next" data-wizard-target="nextBtn" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
+            Next Framework
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="wizard-step hidden" data-wizard-target="step">
+        <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+          <!-- Tool Header -->
+          <div class="bg-gradient-to-r from-orange-500 to-orange-600 p-8 text-white">
+            <div class="flex items-start justify-between mb-4">
+              <div class="flex-1">
+                <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-3">
+                  Framework 2 of 3
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-2">
+                  SPIN Selling Framework
+                </h2>
+              </div>
+              <div class="flex-shrink-0 ml-4">
+                <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
+                  <span class="text-3xl font-bold">2</span>
+                </div>
+              </div>
+            </div>
+            <p class="text-xl text-white/90">
+              B2B sales methodology using Situation, Problem, Implication, and Need-payoff questions to uncover customer needs.
+            </p>
+          </div>
+
+          <!-- Tool Content -->
+          <div class="p-8 md:p-12">
+            <div class="prose prose-lg max-w-none mb-8">
+              <p>SPIN Selling works for complex B2B sales. Situation questions establish context, Problem questions uncover difficulties,
+<br>Implication questions make the problem urgent, and Need-payoff questions get buyers to articulate the value of your solution.
+<br>Don't pitch too early - spend 70% of the call asking questions and listening.
+</p>
+            </div>
+
+            <!-- Interactive Template -->
+            <div class="mb-8">
+                <!-- BEGIN app/views/wizard/_spin_selling_template.html.erb --><div class="space-y-6">
+
+  <!-- SPIN Overview -->
+  <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border-2 border-blue-200">
+    <h3 class="text-2xl font-bold text-gray-900 mb-4">The SPIN Methodology</h3>
+    <p class="text-gray-700 mb-4">
+      SPIN Selling is designed for complex B2B sales. Instead of pitching, you ask four types of questions that lead buyers to recognize they need your solution.
+    </p>
+    <div class="bg-white rounded-xl p-4">
+      <p class="text-sm text-gray-600"><strong>Key principle:</strong> People buy when they feel the pain is urgent and your solution is the answer. SPIN questions make that happen.</p>
+    </div>
+  </div>
+
+  <!-- The Four Question Types -->
+  <div class="grid md:grid-cols-2 gap-6">
+
+    <!-- Situation Questions -->
+    <div class="bg-white rounded-2xl p-6 border-2 border-green-200 shadow-lg">
+      <div class="flex items-center mb-4">
+        <div class="w-12 h-12 bg-green-500 text-white rounded-xl flex items-center justify-center font-bold text-xl mr-3">S</div>
+        <h3 class="text-xl font-bold text-gray-900">Situation Questions</h3>
+      </div>
+      <p class="text-sm text-gray-600 mb-4">Gather context about their current setup. Keep these brief—too many and you sound like a survey.</p>
+
+      <div class="space-y-3">
+        <div class="bg-green-50 rounded-lg p-3">
+          <p class="text-sm font-semibold text-gray-900">"What's your current process for [task]?"</p>
+        </div>
+        <div class="bg-green-50 rounded-lg p-3">
+          <p class="text-sm font-semibold text-gray-900">"How many people are on your team?"</p>
+        </div>
+        <div class="bg-green-50 rounded-lg p-3">
+          <p class="text-sm font-semibold text-gray-900">"Which tools are you using today?"</p>
+        </div>
+        <div class="bg-green-50 rounded-lg p-3">
+          <p class="text-sm font-semibold text-gray-900">"Who's responsible for [specific area]?"</p>
+        </div>
+      </div>
+
+      <div class="mt-4 p-3 bg-amber-50 rounded-lg border border-amber-200">
+        <p class="text-xs text-amber-800"><strong>⚠️ Warning:</strong> Limit to 3-4 questions. Move to Problem questions quickly.</p>
+      </div>
+    </div>
+
+    <!-- Problem Questions -->
+    <div class="bg-white rounded-2xl p-6 border-2 border-red-200 shadow-lg">
+      <div class="flex items-center mb-4">
+        <div class="w-12 h-12 bg-red-500 text-white rounded-xl flex items-center justify-center font-bold text-xl mr-3">P</div>
+        <h3 class="text-xl font-bold text-gray-900">Problem Questions</h3>
+      </div>
+      <p class="text-sm text-gray-600 mb-4">Uncover difficulties, pain points, and dissatisfactions with their current approach.</p>
+
+      <div class="space-y-3">
+        <div class="bg-red-50 rounded-lg p-3">
+          <p class="text-sm font-semibold text-gray-900">"What's frustrating about your current solution?"</p>
+        </div>
+        <div class="bg-red-50 rounded-lg p-3">
+          <p class="text-sm font-semibold text-gray-900">"Where do bottlenecks show up in your workflow?"</p>
+        </div>
+        <div class="bg-red-50 rounded-lg p-3">
+          <p class="text-sm font-semibold text-gray-900">"What happens when things go wrong?"</p>
+        </div>
+        <div class="bg-red-50 rounded-lg p-3">
+          <p class="text-sm font-semibold text-gray-900">"Is [specific problem] something you deal with often?"</p>
+        </div>
+      </div>
+
+      <div class="mt-4 p-3 bg-green-50 rounded-lg border border-green-200">
+        <p class="text-xs text-green-800"><strong>✅ Pro Tip:</strong> Listen for pain. When they complain, dig deeper with follow-ups.</p>
+      </div>
+    </div>
+
+    <!-- Implication Questions -->
+    <div class="bg-white rounded-2xl p-6 border-2 border-orange-200 shadow-lg">
+      <div class="flex items-center mb-4">
+        <div class="w-12 h-12 bg-orange-500 text-white rounded-xl flex items-center justify-center font-bold text-xl mr-3">I</div>
+        <h3 class="text-xl font-bold text-gray-900">Implication Questions</h3>
+      </div>
+      <p class="text-sm text-gray-600 mb-4">Make the problem feel bigger and more urgent. Connect pain to business impact.</p>
+
+      <div class="space-y-3">
+        <div class="bg-orange-50 rounded-lg p-3">
+          <p class="text-sm font-semibold text-gray-900">"How does that affect your team's productivity?"</p>
+        </div>
+        <div class="bg-orange-50 rounded-lg p-3">
+          <p class="text-sm font-semibold text-gray-900">"What does that cost you in revenue?"</p>
+        </div>
+        <div class="bg-orange-50 rounded-lg p-3">
+          <p class="text-sm font-semibold text-gray-900">"If this continues, what happens in 6 months?"</p>
+        </div>
+        <div class="bg-orange-50 rounded-lg p-3">
+          <p class="text-sm font-semibold text-gray-900">"Does that create problems for other departments too?"</p>
+        </div>
+      </div>
+
+      <div class="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-200">
+        <p class="text-xs text-blue-800"><strong>💡 Goal:</strong> Get them to say "This is a bigger problem than I realized."</p>
+      </div>
+    </div>
+
+    <!-- Need-Payoff Questions -->
+    <div class="bg-white rounded-2xl p-6 border-2 border-purple-200 shadow-lg">
+      <div class="flex items-center mb-4">
+        <div class="w-12 h-12 bg-purple-500 text-white rounded-xl flex items-center justify-center font-bold text-xl mr-3">N</div>
+        <h3 class="text-xl font-bold text-gray-900">Need-Payoff Questions</h3>
+      </div>
+      <p class="text-sm text-gray-600 mb-4">Get them to articulate the benefits of solving the problem. Let THEM sell it to themselves.</p>
+
+      <div class="space-y-3">
+        <div class="bg-purple-50 rounded-lg p-3">
+          <p class="text-sm font-semibold text-gray-900">"If you could solve this, how would that help your team?"</p>
+        </div>
+        <div class="bg-purple-50 rounded-lg p-3">
+          <p class="text-sm font-semibold text-gray-900">"What would it be worth to you to eliminate [problem]?"</p>
+        </div>
+        <div class="bg-purple-50 rounded-lg p-3">
+          <p class="text-sm font-semibold text-gray-900">"How would faster [outcome] impact your business?"</p>
+        </div>
+        <div class="bg-purple-50 rounded-lg p-3">
+          <p class="text-sm font-semibold text-gray-900">"Would automating this free up time for more strategic work?"</p>
+        </div>
+      </div>
+
+      <div class="mt-4 p-3 bg-green-50 rounded-lg border border-green-200">
+        <p class="text-xs text-green-800"><strong>🎯 Perfect:</strong> When they say "Yeah, that would be huge for us!"—now you can pitch.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Discovery Call Script -->
+  <div class="bg-white rounded-2xl p-6 border-2 border-gray-200 shadow-lg">
+    <h3 class="text-xl font-bold text-gray-900 mb-4">Discovery Call Script (30 min)</h3>
+
+    <div class="space-y-4">
+      <div class="border-l-4 border-gray-400 pl-4">
+        <h4 class="font-bold text-gray-900 mb-2">Opening (2 min)</h4>
+        <p class="text-sm text-gray-700">"Thanks for taking the time. I'd love to learn more about [their company] and see if there's a fit. I'll ask some questions about your current setup and challenges. Sound good?"</p>
+      </div>
+
+      <div class="border-l-4 border-green-500 pl-4">
+        <h4 class="font-bold text-gray-900 mb-2">Situation (5 min)</h4>
+        <p class="text-sm text-gray-700 mb-2">Get context. Ask 3-4 Situation questions to understand their world.</p>
+        <p class="text-xs text-gray-500 italic">Example flow: Current process → Team size → Tools used → Decision makers</p>
+      </div>
+
+      <div class="border-l-4 border-red-500 pl-4">
+        <h4 class="font-bold text-gray-900 mb-2">Problem (8 min)</h4>
+        <p class="text-sm text-gray-700 mb-2">Dig into pain. Ask Problem questions and listen carefully. Follow up when you hear frustration.</p>
+        <p class="text-xs text-gray-500 italic">"Tell me more about that..." "How often does that happen?" "What have you tried?"</p>
+      </div>
+
+      <div class="border-l-4 border-orange-500 pl-4">
+        <h4 class="font-bold text-gray-900 mb-2">Implication (7 min)</h4>
+        <p class="text-sm text-gray-700 mb-2">Make it urgent. Connect problems to business impact. Get them to feel the cost of inaction.</p>
+        <p class="text-xs text-gray-500 italic">"What's that costing you?" "How does that affect other teams?" "What if this isn't fixed?"</p>
+      </div>
+
+      <div class="border-l-4 border-purple-500 pl-4">
+        <h4 class="font-bold text-gray-900 mb-2">Need-Payoff (6 min)</h4>
+        <p class="text-sm text-gray-700 mb-2">Let them sell themselves. Ask about benefits of solving the problem. They should be excited by now.</p>
+        <p class="text-xs text-gray-500 italic">"If we could solve this, what would that mean for you?" "How would that change things?"</p>
+      </div>
+
+      <div class="border-l-4 border-blue-500 pl-4">
+        <h4 class="font-bold text-gray-900 mb-2">Transition to Demo (2 min)</h4>
+        <p class="text-sm text-gray-700 mb-2">NOW you can pitch. Frame your solution around THEIR words.</p>
+        <p class="text-xs text-gray-500 italic">"Based on what you've shared, let me show you how we solve exactly that problem..."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Common Mistakes -->
+  <div class="bg-red-50 rounded-2xl p-6 border-2 border-red-200">
+    <h3 class="text-xl font-bold text-red-900 mb-4">Common SPIN Mistakes</h3>
+    <div class="space-y-2">
+      <div class="flex items-start space-x-2">
+        <span class="text-red-600 font-bold">❌</span>
+        <p class="text-sm text-gray-700">Pitching too early before understanding their pain</p>
+      </div>
+      <div class="flex items-start space-x-2">
+        <span class="text-red-600 font-bold">❌</span>
+        <p class="text-sm text-gray-700">Asking too many Situation questions (feels like an interrogation)</p>
+      </div>
+      <div class="flex items-start space-x-2">
+        <span class="text-red-600 font-bold">❌</span>
+        <p class="text-sm text-gray-700">Not listening—just waiting for your turn to talk</p>
+      </div>
+      <div class="flex items-start space-x-2">
+        <span class="text-red-600 font-bold">❌</span>
+        <p class="text-sm text-gray-700">Skipping Need-Payoff questions (you end up selling, not them)</p>
+      </div>
+      <div class="flex items-start space-x-2">
+        <span class="text-red-600 font-bold">❌</span>
+        <p class="text-sm text-gray-700">Reading from a script instead of having a conversation</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- END app/views/wizard/_spin_selling_template.html.erb -->
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="bg-gray-50 rounded-2xl p-6 mb-8">
+              <h3 class="text-lg font-semibold text-gray-900 mb-4">Key Metrics to Track</h3>
+              <div class="grid md:grid-cols-3 gap-4">
+                  <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-700">Discovery Call Quality</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-700">Needs Identified</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-700">Conversion to Proposal</span>
+                  </div>
+              </div>
+            </div>
+
+            <!-- Actionable Next Steps -->
+            <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 mb-8 border-2 border-green-200" data-wizard-progress-current-tool-value="spin_selling">
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex items-start space-x-3">
+                  <svg class="w-6 h-6 text-green-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <div>
+                    <h4 class="font-semibold text-gray-900 mb-2">Your Action Plan</h4>
+                    <p class="text-sm text-gray-600 mb-4">Complete these steps to implement SPIN Selling Framework in your startup:</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-3" data-wizard-progress-target="actionItem">
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox" data-wizard-progress-target="completionCheckbox" data-action="change->wizard-progress#toggleActionItem" data-action-id="spin_script" class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Prepare your SPIN script</strong> - Write 3 questions for each category (S, P, I, N)
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox" data-wizard-progress-target="completionCheckbox" data-action="change->wizard-progress#toggleActionItem" data-action-id="spin_calls" class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Book 3 discovery calls</strong> this week with qualified B2B prospects
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox" data-wizard-progress-target="completionCheckbox" data-action="change->wizard-progress#toggleActionItem" data-action-id="spin_refine" class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Refine based on feedback</strong> - Record calls, note which questions got best responses, iterate
+                    </span>
+                  </label>
+
+              </div>
+
+              <!-- Progress Summary -->
+              <div class="mt-4 pt-4 border-t border-green-200">
+                <p class="text-sm text-gray-600" data-wizard-progress-target="progressIndicator">
+                  0/3 actions completed
+                </p>
+              </div>
+
+              <!-- Mark as Complete Button -->
+              <div class="mt-4">
+                <button data-action="click->wizard-progress#markToolCompleted" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-600 to-green-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  Mark Framework as Complete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex items-center justify-between mt-8">
+          <button data-action="click->wizard#previous" data-wizard-target="prevBtn" class="inline-flex items-center px-6 py-3 bg-white text-gray-700 font-semibold rounded-xl border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50 transition-all duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous
+          </button>
+
+          <button data-action="click->wizard#next" data-wizard-target="nextBtn" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
+            Next Framework
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="wizard-step hidden" data-wizard-target="step">
+        <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+          <!-- Tool Header -->
+          <div class="bg-gradient-to-r from-orange-500 to-orange-600 p-8 text-white">
+            <div class="flex items-start justify-between mb-4">
+              <div class="flex-1">
+                <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-3">
+                  Framework 3 of 3
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-2">
+                  Growth &amp; Validation Loops
+                </h2>
+              </div>
+              <div class="flex-shrink-0 ml-4">
+                <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
+                  <span class="text-3xl font-bold">3</span>
+                </div>
+              </div>
+            </div>
+            <p class="text-xl text-white/90">
+              Build systems to continuously test assumptions, measure what matters, and create feedback loops that drive sustainable growth.
+            </p>
+          </div>
+
+          <!-- Tool Content -->
+          <div class="p-8 md:p-12">
+            <div class="prose prose-lg max-w-none mb-8">
+              <p>Growth isn't about hacks - it's about building loops. A growth loop is where an input generates an output that creates more input.
+<br>Examples: User invites friends (viral loop), content generates SEO traffic (content loop), paid ads fund more ads (paid loop).
+<br>Combine with validation: every loop should test an assumption and generate learning.
+</p>
+            </div>
+
+            <!-- Interactive Template -->
+            <div class="mb-8">
+                <!-- BEGIN app/views/wizard/_growth_validation_template.html.erb --><div class="space-y-6">
+
+  <!-- Growth Loops Explained -->
+  <div class="bg-gradient-to-br from-green-50 to-teal-50 rounded-2xl p-6 border-2 border-green-200">
+    <h3 class="text-2xl font-bold text-gray-900 mb-4">What Are Growth Loops?</h3>
+    <p class="text-gray-700 mb-4">
+      A growth loop is a system where an output becomes an input. Unlike linear funnels (spend money → get customers → done),
+      loops create compounding growth: each user/action creates more users/actions.
+    </p>
+    <div class="bg-white rounded-xl p-4">
+      <p class="text-sm text-gray-600"><strong>Example:</strong> User invites friend → Friend signs up → Friend invites their friend → More signups (Viral Loop)</p>
+    </div>
+  </div>
+
+  <!-- The Three Core Loops -->
+  <div class="space-y-4">
+
+    <!-- Viral Loop -->
+    <div class="bg-white rounded-2xl p-6 border-2 border-purple-200 shadow-lg">
+      <div class="flex items-center mb-4">
+        <div class="text-4xl mr-3">🔁</div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-900">1. Viral Loop</h3>
+          <p class="text-sm text-gray-600">Users bring more users</p>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h4 class="font-bold text-gray-900 mb-2">How It Works:</h4>
+        <div class="bg-purple-50 rounded-lg p-4 mb-3">
+          <p class="text-sm text-gray-700">User signs up → Gets value → Invites friends (because it's better together) → Friends sign up → Repeat</p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <h4 class="font-semibold text-green-700 mb-2 text-sm">✅ Good Examples</h4>
+          <ul class="text-xs space-y-1 text-gray-700">
+            <li>• Dropbox: Get extra storage for referrals</li>
+            <li>• Notion: Invite team = shared workspace</li>
+            <li>• WhatsApp: More friends = more value</li>
+            <li>• Calendly: Each meeting invite is an ad</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-gray-700 mb-2 text-sm">🔑 Key Metrics</h4>
+          <ul class="text-xs space-y-1 text-gray-700">
+            <li>• <strong>K-factor:</strong> Invites per user</li>
+            <li>• <strong>Conversion:</strong> % who accept invite</li>
+            <li>• <strong>Cycle time:</strong> Days from signup to invite</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-4 p-3 bg-amber-50 rounded-lg">
+        <p class="text-xs text-gray-700"><strong>Build This If:</strong> Your product is multiplayer, collaborative, or has network effects.</p>
+      </div>
+    </div>
+
+    <!-- Content Loop -->
+    <div class="bg-white rounded-2xl p-6 border-2 border-blue-200 shadow-lg">
+      <div class="flex items-center mb-4">
+        <div class="text-4xl mr-3">📝</div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-900">2. Content Loop (SEO)</h3>
+          <p class="text-sm text-gray-600">Content brings users who create more content</p>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h4 class="font-bold text-gray-900 mb-2">How It Works:</h4>
+        <div class="bg-blue-50 rounded-lg p-4 mb-3">
+          <p class="text-sm text-gray-700">Create content → Ranks on Google → Drives traffic → Users create more content → More pages rank → Repeat</p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <h4 class="font-semibold text-green-700 mb-2 text-sm">✅ Good Examples</h4>
+          <ul class="text-xs space-y-1 text-gray-700">
+            <li>• Pinterest: Pins rank, drive signups, users pin more</li>
+            <li>• Yelp: Reviews rank for "[city] restaurants"</li>
+            <li>• Stack Overflow: Q&amp;A ranks for tech problems</li>
+            <li>• TripAdvisor: Hotel reviews = SEO goldmine</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-gray-700 mb-2 text-sm">🔑 Key Metrics</h4>
+          <ul class="text-xs space-y-1 text-gray-700">
+            <li>• <strong>Pages indexed:</strong> Google coverage</li>
+            <li>• <strong>Organic traffic:</strong> Monthly visits</li>
+            <li>• <strong>Content created:</strong> UGC per user</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-4 p-3 bg-amber-50 rounded-lg">
+        <p class="text-xs text-gray-700"><strong>Build This If:</strong> Your product generates user-created content (reviews, posts, listings, Q&amp;A).</p>
+      </div>
+    </div>
+
+    <!-- Paid Loop -->
+    <div class="bg-white rounded-2xl p-6 border-2 border-orange-200 shadow-lg">
+      <div class="flex items-center mb-4">
+        <div class="text-4xl mr-3">💰</div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-900">3. Paid Loop</h3>
+          <p class="text-sm text-gray-600">Revenue funds more customer acquisition</p>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h4 class="font-bold text-gray-900 mb-2">How It Works:</h4>
+        <div class="bg-orange-50 rounded-lg p-4 mb-3">
+          <p class="text-sm text-gray-700">Spend $100 on ads → Acquire customer → Customer pays $300 → Reinvest $300 in ads → Acquire 3 customers → Repeat</p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <h4 class="font-semibold text-green-700 mb-2 text-sm">✅ Works When:</h4>
+          <ul class="text-xs space-y-1 text-gray-700">
+            <li>• LTV significantly higher than CAC (3:1+ ratio)</li>
+            <li>• Fast payback period (&lt; 6 months)</li>
+            <li>• Repeatable ad performance</li>
+            <li>• Strong retention (keep customers long-term)</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-gray-700 mb-2 text-sm">🔑 Key Metrics</h4>
+          <ul class="text-xs space-y-1 text-gray-700">
+            <li>• <strong>CAC:</strong> Cost to acquire customer</li>
+            <li>• <strong>LTV:</strong> Lifetime value per customer</li>
+            <li>• <strong>Payback:</strong> Months to recover CAC</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-4 p-3 bg-red-50 rounded-lg border border-red-200">
+        <p class="text-xs text-red-800"><strong>⚠️ Warning:</strong> Don't start with paid ads until you have proven retention and unit economics.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Building Your First Loop -->
+  <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-6 border-2 border-blue-200">
+    <h3 class="text-xl font-bold text-gray-900 mb-4">How to Build Your First Growth Loop</h3>
+
+    <div class="space-y-4">
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
+        <div>
+          <h4 class="font-bold text-gray-900">Map Your Current User Journey</h4>
+          <p class="text-sm text-gray-600">Write down every step from awareness to active user. Look for natural sharing moments.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
+        <div>
+          <h4 class="font-bold text-gray-900">Identify One Loop Type That Fits</h4>
+          <p class="text-sm text-gray-600">Pick viral if multiplayer, content if UGC-driven, paid if you have strong unit economics.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+        <div>
+          <h4 class="font-bold text-gray-900">Build the Smallest Version</h4>
+          <p class="text-sm text-gray-600">Don't over-engineer. Simple invite button, basic SEO, small ad budget. Ship fast.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
+        <div>
+          <h4 class="font-bold text-gray-900">Measure Loop Velocity</h4>
+          <p class="text-sm text-gray-600">How long from input to output? Shorten cycle time by removing friction.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-sm">5</div>
+        <div>
+          <h4 class="font-bold text-gray-900">Optimize One Variable at a Time</h4>
+          <p class="text-sm text-gray-600">Increase k-factor OR shorten cycle time OR improve conversion. Don't change everything at once.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Validation Framework -->
+  <div class="bg-white rounded-2xl p-6 border-2 border-gray-200 shadow-lg">
+    <h3 class="text-xl font-bold text-gray-900 mb-4">Validation Checklist</h3>
+
+    <div class="space-y-3">
+      <div class="flex items-start space-x-3 p-4 bg-gray-50 rounded-xl">
+        <input type="checkbox" class="mt-1 w-5 h-5 text-green-600 rounded">
+        <div class="flex-1">
+          <h4 class="font-bold text-gray-900">Problem Validated</h4>
+          <p class="text-sm text-gray-600">10+ customer interviews confirming pain exists and they're actively looking for solutions</p>
+        </div>
+      </div>
+
+      <div class="flex items-start space-x-3 p-4 bg-gray-50 rounded-xl">
+        <input type="checkbox" class="mt-1 w-5 h-5 text-green-600 rounded">
+        <div class="flex-1">
+          <h4 class="font-bold text-gray-900">Solution Validated</h4>
+          <p class="text-sm text-gray-600">5+ users actively using MVP and reporting it solves their problem</p>
+        </div>
+      </div>
+
+      <div class="flex items-start space-x-3 p-4 bg-gray-50 rounded-xl">
+        <input type="checkbox" class="mt-1 w-5 h-5 text-green-600 rounded">
+        <div class="flex-1">
+          <h4 class="font-bold text-gray-900">Willingness to Pay</h4>
+          <p class="text-sm text-gray-600">At least 3 users paid (even $1) or committed to pay when you launch</p>
+        </div>
+      </div>
+
+      <div class="flex items-start space-x-3 p-4 bg-gray-50 rounded-xl">
+        <input type="checkbox" class="mt-1 w-5 h-5 text-green-600 rounded">
+        <div class="flex-1">
+          <h4 class="font-bold text-gray-900">Channel Validated</h4>
+          <p class="text-sm text-gray-600">You know where your customers hang out and have acquired users through that channel</p>
+        </div>
+      </div>
+
+      <div class="flex items-start space-x-3 p-4 bg-gray-50 rounded-xl">
+        <input type="checkbox" class="mt-1 w-5 h-5 text-green-600 rounded">
+        <div class="flex-1">
+          <h4 class="font-bold text-gray-900">Retention Signal</h4>
+          <p class="text-sm text-gray-600">Users come back weekly (or appropriate frequency for your product)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- END app/views/wizard/_growth_validation_template.html.erb -->
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="bg-gray-50 rounded-2xl p-6 mb-8">
+              <h3 class="text-lg font-semibold text-gray-900 mb-4">Key Metrics to Track</h3>
+              <div class="grid md:grid-cols-3 gap-4">
+                  <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-700">Weekly Active Experiments</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-700">Learning Velocity</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-700">Growth Loop Strength</span>
+                  </div>
+              </div>
+            </div>
+
+            <!-- Actionable Next Steps -->
+            <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 mb-8 border-2 border-green-200" data-wizard-progress-current-tool-value="growth_validation">
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex items-start space-x-3">
+                  <svg class="w-6 h-6 text-green-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <div>
+                    <h4 class="font-semibold text-gray-900 mb-2">Your Action Plan</h4>
+                    <p class="text-sm text-gray-600 mb-4">Complete these steps to implement Growth &amp; Validation Loops in your startup:</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-3" data-wizard-progress-target="actionItem">
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox" data-wizard-progress-target="completionCheckbox" data-action="change->wizard-progress#toggleActionItem" data-action-id="growth_loop_pick" class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Pick your primary growth loop</strong> - Viral, Content, or Paid based on your product type
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox" data-wizard-progress-target="completionCheckbox" data-action="change->wizard-progress#toggleActionItem" data-action-id="growth_loop_build" class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Build MVP of the loop</strong> - Simple invite mechanism, basic SEO, or small ad test ($100)
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox" data-wizard-progress-target="completionCheckbox" data-action="change->wizard-progress#toggleActionItem" data-action-id="growth_loop_measure" class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Measure &amp; optimize weekly</strong> - Track K-factor/conversion/cycle time and improve one metric at a time
+                    </span>
+                  </label>
+
+              </div>
+
+              <!-- Progress Summary -->
+              <div class="mt-4 pt-4 border-t border-green-200">
+                <p class="text-sm text-gray-600" data-wizard-progress-target="progressIndicator">
+                  0/3 actions completed
+                </p>
+              </div>
+
+              <!-- Mark as Complete Button -->
+              <div class="mt-4">
+                <button data-action="click->wizard-progress#markToolCompleted" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-600 to-green-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  Mark Framework as Complete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex items-center justify-between mt-8">
+          <button data-action="click->wizard#previous" data-wizard-target="prevBtn" class="inline-flex items-center px-6 py-3 bg-white text-gray-700 font-semibold rounded-xl border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50 transition-all duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous
+          </button>
+
+          <button data-action="click->wizard#next" data-wizard-target="nextBtn" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
+            Next Framework
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    <!-- Final Step: Summary & Next Steps -->
+    <div class="wizard-step hidden" data-wizard-target="step">
+      <div class="text-center">
+        <div class="inline-block mb-6">
+          <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center shadow-lg animate-bounce-slow">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Your Toolkit is Ready!
+        </h1>
+
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed mb-8">
+          You now have 3 proven frameworks to guide your startup journey.
+          Remember: <strong>implementation beats perfection</strong>. Start with one tool today.
+        </p>
+
+        <!-- Progress Export -->
+        <div class="mb-12 flex justify-center gap-4">
+          <button data-action="click->wizard-progress#exportProgress" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            Export Your Progress
+          </button>
+
+          <button data-action="click->wizard-progress#resetProgress" class="inline-flex items-center px-6 py-3 bg-gray-200 text-gray-700 font-semibold rounded-xl hover:bg-gray-300 transition-all duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+            </svg>
+            Reset Progress
+          </button>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+              <h3 class="font-bold text-gray-900 mb-2">Conversion Copywriting</h3>
+              <p class="text-sm text-gray-600 mb-4">Framework for writing clear, compelling copy that converts visitors into customers using proven psychological triggers.</p>
+              <span class="inline-block px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
+                Validation Tools
+              </span>
+            </div>
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+              <h3 class="font-bold text-gray-900 mb-2">SPIN Selling Framework</h3>
+              <p class="text-sm text-gray-600 mb-4">B2B sales methodology using Situation, Problem, Implication, and Need-payoff questions to uncover customer needs.</p>
+              <span class="inline-block px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
+                Validation Tools
+              </span>
+            </div>
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+              <h3 class="font-bold text-gray-900 mb-2">Growth &amp; Validation Loops</h3>
+              <p class="text-sm text-gray-600 mb-4">Build systems to continuously test assumptions, measure what matters, and create feedback loops that drive sustainable growth.</p>
+              <span class="inline-block px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
+                Validation Tools
+              </span>
+            </div>
+        </div>
+
+        <!-- Recommended Resources -->
+        <div class="mb-12 max-w-4xl mx-auto">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">📚 Recommended Resources</h2>
+          <div class="grid md:grid-cols-3 gap-6 text-left">
+            <div class="bg-white rounded-xl p-6 shadow-lg border-2 border-blue-100">
+              <div class="text-3xl mb-3">📖</div>
+              <h3 class="font-bold text-gray-900 mb-2">Books</h3>
+              <ul class="text-sm text-gray-600 space-y-2">
+                <li>• <strong>The Mom Test</strong> by Rob Fitzpatrick</li>
+                <li>• <strong>Lean Startup</strong> by Eric Ries</li>
+                <li>• <strong>Traction</strong> by Gabriel Weinberg</li>
+                <li>• <strong>$100M Offers</strong> by Alex Hormozi</li>
+              </ul>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-lg border-2 border-purple-100">
+              <div class="text-3xl mb-3">🎓</div>
+              <h3 class="font-bold text-gray-900 mb-2">Courses</h3>
+              <ul class="text-sm text-gray-600 space-y-2">
+                <li>• <a href="https://www.ycombinator.com/library" target="_blank" class="text-blue-600 hover:underline">YC Startup School</a> (Free)</li>
+                <li>• <a href="https://www.reforge.com" target="_blank" class="text-blue-600 hover:underline">Reforge Growth Series</a></li>
+                <li>• <a href="https://learn.nathanbarry.com" target="_blank" class="text-blue-600 hover:underline">Nathan Barry's courses</a></li>
+              </ul>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-lg border-2 border-green-100">
+              <div class="text-3xl mb-3">🛠️</div>
+              <h3 class="font-bold text-gray-900 mb-2">Tools</h3>
+              <ul class="text-sm text-gray-600 space-y-2">
+                <li>• <a href="https://carrd.co" target="_blank" class="text-blue-600 hover:underline">Carrd</a> - Landing pages</li>
+                <li>• <a href="https://useplausible.com" target="_blank" class="text-blue-600 hover:underline">Plausible</a> - Analytics</li>
+                <li>• <a href="https://www.figma.com" target="_blank" class="text-blue-600 hover:underline">Figma</a> - Design</li>
+                <li>• <a href="https://airtable.com" target="_blank" class="text-blue-600 hover:underline">Airtable</a> - Tracking</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Community -->
+        <div class="mb-12 max-w-2xl mx-auto bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 border-2 border-orange-200">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">🚀 Keep Building!</h2>
+          <p class="text-gray-700 mb-4">
+            The best way to get traction is to implement one framework at a time. Don't try to do everything at once.
+          </p>
+          <div class="bg-white rounded-xl p-4 mb-4">
+            <h3 class="font-bold text-gray-900 mb-2">Your Week 1 Action Plan:</h3>
+            <ol class="text-sm text-gray-700 space-y-2 list-decimal list-inside">
+              <li>Fill out your Lean Canvas (identify riskiest assumptions)</li>
+              <li>Complete 5 customer interviews using Mom Test principles</li>
+              <li>Build and launch a simple landing page</li>
+              <li>Drive 100 visitors and measure conversion rate</li>
+              <li>Iterate based on learnings</li>
+            </ol>
+          </div>
+          <p class="text-sm text-gray-600 italic">
+            "The best time to start was yesterday. The second best time is now."
+          </p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200" href="../../../all-tools">
+            Explore All Tools
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+</a>
+          <a class="inline-flex items-center px-6 py-3 bg-white text-gray-700 font-semibold rounded-xl border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50 transition-all duration-200" href="../../../wizard/start">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+            </svg>
+            Try Another Stage
+</a>        </div>
+
+        <!-- Previous Button -->
+        <div class="mt-8">
+          <button data-action="click->wizard#previous" data-wizard-target="prevBtn" class="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Back to Last Framework
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- END app/views/wizard/journey.html.erb -->
+  
+
+</body></html><!-- END app/views/layouts/application.html.erb -->

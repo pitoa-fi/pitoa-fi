@@ -1,0 +1,84 @@
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <!-- Hero Section -->
+  <div class="text-center mb-12" data-controller="language-toggle" data-language-toggle-default-lang-value="en">
+    <p class="uppercase text-sm tracking-wide text-blue-600 mb-3" data-language-toggle-target="copy" data-lang="en">
+      Traction • Pitoa
+    </p>
+    <p class="uppercase text-sm tracking-wide text-blue-600 mb-3 hidden" data-language-toggle-target="copy" data-lang="fi">
+      Traktio • Pitoa
+    </p>
+    <h1 class="text-4xl font-bold text-gray-900 mb-4" data-language-toggle-target="copy" data-lang="en">
+      Startup Traction Toolkit
+    </h1>
+    <h1 class="text-4xl font-bold text-gray-900 mb-4 hidden" data-language-toggle-target="copy" data-lang="fi">
+      Startupien pitotyökalupakki
+    </h1>
+
+    <div class="flex justify-center gap-3 mb-6">
+      <button
+        type="button"
+        class="px-4 py-2 rounded-lg bg-blue-600 text-white transition-colors"
+        data-language-toggle-target="button"
+        data-action="language-toggle#switch"
+        data-lang="en"
+      >
+        English
+      </button>
+      <button
+        type="button"
+        class="px-4 py-2 rounded-lg bg-gray-100 text-gray-700 transition-colors"
+        data-language-toggle-target="button"
+        data-action="language-toggle#switch"
+        data-lang="fi"
+      >
+        Suomi
+      </button>
+    </div>
+
+    <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-language-toggle-target="copy" data-lang="en">
+      Traction is built through deliberate practice. Pitoa curates 20 simple scenes—workshops, scorecards, and checklists—
+      that help early teams launch faster, validate demand, and speak the same traction language with partners and investors.
+    </p>
+    <p class="text-xl text-gray-600 max-w-3xl mx-auto hidden" data-language-toggle-target="copy" data-lang="fi">
+      Pitoa syntyy tavoitteellisesta tekemisestä. Tämä työkalu kokoaa 20 käytännön kohtausta—työpajoja, mittaristoja ja
+      tarkistuslistoja—joiden avulla alkuvaiheen tiimit voivat käynnistää nopeammin, todentaa kysyntää ja kertoa pitotarinan
+      samaa kieltä puhuen sijoittajille ja kumppaneille.
+    </p>
+  </div>
+
+  <!-- Navigation Pills -->
+  <div class="flex flex-wrap justify-center gap-4 mb-12">
+    <%= link_to wizard_start_path, class: "px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all transform hover:-translate-y-0.5" do %>
+      <span class="inline-flex items-center">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+        Interactive Wizard
+      </span>
+    <% end %>
+    <%= link_to "All Tools", all_tools_path, class: "px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors" %>
+    <%= link_to "Metrics & KPIs", metrics_path, class: "px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors" %>
+    <%= link_to "Timeline", timeline_path, class: "px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors" %>
+    <%= link_to "Impact", impact_path, class: "px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors" %>
+  </div>
+
+  <!-- Tools Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <% @tools.each do |tool| %>
+      <%= render ToolCardComponent.new(tool: tool) %>
+    <% end %>
+  </div>
+
+  <!-- Categories Legend -->
+  <div class="mt-12 p-6 bg-gray-50 rounded-lg">
+    <h3 class="text-lg font-semibold text-gray-900 mb-4">Framework Categories</h3>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <% @categories.each do |category| %>
+        <div class="flex items-center space-x-2">
+          <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+          <span class="text-sm text-gray-700"><%= category.to_s.split('_').map(&:capitalize).join(' ') %></span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

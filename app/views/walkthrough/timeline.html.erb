@@ -1,0 +1,49 @@
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <%= link_to "← Back to All Tools", root_path, class: "text-blue-600 hover:text-blue-800 mb-6 inline-block" %>
+
+  <!-- Hero Section -->
+  <div class="text-center mb-12">
+    <h1 class="text-4xl font-bold text-gray-900 mb-4">Development Timeline</h1>
+    <p class="text-xl text-gray-600">
+      18-month roadmap with Go/No-Go decision gates and success criteria
+    </p>
+  </div>
+
+  <!-- Timeline -->
+  <div class="mb-12">
+    <%= render TimelineGateComponent.new(
+      stage: @milestones[0][:stage],
+      date: @milestones[0][:date],
+      criteria: @milestones[0][:criteria],
+      status: :completed
+    ) %>
+    <%= render TimelineGateComponent.new(
+      stage: @milestones[1][:stage],
+      date: @milestones[1][:date],
+      criteria: @milestones[1][:criteria],
+      status: :in_progress
+    ) %>
+    <%= render TimelineGateComponent.new(
+      stage: @milestones[2][:stage],
+      date: @milestones[2][:date],
+      criteria: @milestones[2][:criteria],
+      status: :pending
+    ) %>
+    <%= render TimelineGateComponent.new(
+      stage: @milestones[3][:stage],
+      date: @milestones[3][:date],
+      criteria: @milestones[3][:criteria],
+      status: :pending
+    ) %>
+  </div>
+
+  <!-- Decision Framework Tools -->
+  <section>
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Decision Framework Tools</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <% @decision_gates.each do |tool| %>
+        <%= render ToolCardComponent.new(tool: tool) %>
+      <% end %>
+    </div>
+  </section>
+</div>

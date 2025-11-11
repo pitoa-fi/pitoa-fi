@@ -1,0 +1,80 @@
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <%= link_to "← Back to All Tools", root_path, class: "text-blue-600 hover:text-blue-800 mb-6 inline-block" %>
+
+  <!-- Hero Section -->
+  <div class="text-center mb-12">
+    <h1 class="text-4xl font-bold text-gray-900 mb-4">Impact Dashboard</h1>
+    <p class="text-xl text-gray-600">
+      Measuring social and environmental outcomes beyond financial metrics
+    </p>
+  </div>
+
+  <!-- Impact Stats -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+    <div class="bg-gradient-to-br from-green-400 to-green-600 rounded-lg shadow-lg p-6 text-white text-center">
+      <div class="text-4xl font-bold mb-2"><%= @impact_data[:payouts] %></div>
+      <div class="text-sm opacity-90">Total Payouts to Rural Suppliers</div>
+    </div>
+
+    <div class="bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg shadow-lg p-6 text-white text-center">
+      <div class="text-4xl font-bold mb-2"><%= @impact_data[:co2_saved] %></div>
+      <div class="text-sm opacity-90">CO₂ Emissions Saved</div>
+    </div>
+
+    <div class="bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg shadow-lg p-6 text-white text-center">
+      <div class="text-4xl font-bold mb-2"><%= @impact_data[:jobs_created] %></div>
+      <div class="text-sm opacity-90">Rural Jobs Created</div>
+    </div>
+
+    <div class="bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg shadow-lg p-6 text-white text-center">
+      <div class="text-4xl font-bold mb-2"><%= @impact_data[:rural_businesses] %></div>
+      <div class="text-sm opacity-90">Rural Businesses Supported</div>
+    </div>
+  </div>
+
+  <!-- Impact Stories -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Impact Stories</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-xl mr-4">
+            M
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-900">Maria's Farm</h3>
+            <p class="text-sm text-gray-600">Organic Vegetables • Rural Spain</p>
+          </div>
+        </div>
+        <p class="text-gray-700">
+          "Willit helped me reach urban customers directly, increasing my income by 40% while reducing food waste."
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl mr-4">
+            J
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-900">Jean's Cooperative</h3>
+            <p class="text-sm text-gray-600">Local Dairy • Rural France</p>
+          </div>
+        </div>
+        <p class="text-gray-700">
+          "The marketplace connected us with restaurants in Lyon, creating stable demand for our artisanal cheeses."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Tools -->
+  <section>
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Impact Measurement Tools</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <% @impact_tools.each do |tool| %>
+        <%= render ToolCardComponent.new(tool: tool) %>
+      <% end %>
+    </div>
+  </section>
+</div>

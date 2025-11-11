@@ -1,0 +1,41 @@
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <%= link_to "← Back to All Tools", root_path, class: "text-blue-600 hover:text-blue-800 mb-6 inline-block" %>
+
+  <!-- Hero Section -->
+  <div class="text-center mb-12">
+    <h1 class="text-4xl font-bold text-gray-900 mb-4">Metrics & KPIs Dashboard</h1>
+    <p class="text-xl text-gray-600">
+      Track your marketplace's North Star metrics and key performance indicators
+    </p>
+  </div>
+
+  <!-- North Star Metrics -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">North Star Metrics</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <%= render MetricDialComponent.new(title: "GMV", value: 285, target: 500, unit: "K€") %>
+      <%= render MetricDialComponent.new(title: "Buyer:Seller Ratio", value: 3.2, target: 5.0, unit: ":1") %>
+      <%= render MetricDialComponent.new(title: "Average Order Value", value: 145, target: 200, unit: "€") %>
+    </div>
+  </section>
+
+  <!-- Financial Metrics -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Financial Backbone</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <%= render MetricDialComponent.new(title: "LTV:CAC Ratio", value: 2.8, target: 3.0, unit: ":1") %>
+      <%= render MetricDialComponent.new(title: "Commission Revenue", value: 42, target: 75, unit: "K€") %>
+      <%= render MetricDialComponent.new(title: "Contribution Margin", value: 35, target: 40, unit: "%") %>
+    </div>
+  </section>
+
+  <!-- Tools Reference -->
+  <section>
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Related Strategy Tools</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <% (@tools + @financial_tools).each do |tool| %>
+        <%= render ToolCardComponent.new(tool: tool) %>
+      <% end %>
+    </div>
+  </section>
+</div>

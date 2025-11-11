@@ -1,0 +1,124 @@
+<div class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center px-4 py-12">
+  <div class="max-w-4xl w-full">
+    <!-- Hero Section -->
+    <div class="text-center mb-12 animate-fade-in">
+      <div class="inline-block mb-6">
+        <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
+          <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+      </div>
+
+      <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+        Find Your Traction Tools
+      </h1>
+
+      <p class="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+        A personalized toolkit to help you validate your startup idea, build the right product, and achieve real traction.
+      </p>
+    </div>
+
+    <!-- Stage Selection Cards -->
+    <div class="mb-8">
+      <h2 class="text-2xl font-semibold text-gray-900 text-center mb-8">
+        Where are you in your startup journey?
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <% @stages.each_with_index do |(stage_key, stage_name), index| %>
+          <%= link_to wizard_journey_path(stage: stage_key),
+              class: "group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-blue-500 transform hover:-translate-y-1",
+              style: "animation-delay: #{index * 100}ms" do %>
+
+            <div class="flex items-start space-x-4">
+              <!-- Icon -->
+              <div class="flex-shrink-0">
+                <div class="w-14 h-14 rounded-xl bg-gradient-to-br <%= stage_gradient(stage_key) %> flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <span class="text-2xl font-bold text-white"><%= index + 1 %></span>
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div class="flex-1">
+                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                  <%= stage_name %>
+                </h3>
+                <p class="text-gray-600 leading-relaxed">
+                  <%= stage_description(stage_key) %>
+                </p>
+              </div>
+
+              <!-- Arrow -->
+              <div class="flex-shrink-0">
+                <svg class="w-6 h-6 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Hover Glow Effect -->
+            <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <!-- Features Preview -->
+    <div class="mt-16 text-center">
+      <div class="inline-flex items-center space-x-8 text-sm text-gray-500">
+        <div class="flex items-center space-x-2">
+          <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          <span>6 Core Frameworks</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          <span>Interactive Guidance</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          <span>5-10 Minutes</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to All Tools Link -->
+    <div class="mt-12 text-center">
+      <%= link_to all_tools_path, class: "inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors" do %>
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        View All 20 Tools
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% content_for :head do %>
+  <style>
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fade-in 0.6s ease-out;
+    }
+
+    .grid > * {
+      animation: fade-in 0.6s ease-out backwards;
+    }
+  </style>
+<% end %>

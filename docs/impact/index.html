@@ -1,0 +1,127 @@
+<!DOCTYPE html><!-- BEGIN app/views/layouts/application.html.erb --><html><head>
+    <title>Pitoa</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="flk2dJDSxnr_cqNr5Zr-ItTZYgPkzffvU3I-2L1k3INF62luSBlYmuM3rzZWwvSzGD9HaGDXHwCvmHvN1Ebxqw">
+    
+
+    
+
+
+    <link rel="icon" href="../icon.png" type="image/png">
+    <link rel="icon" href="../icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../icon.png">
+
+    <link rel="stylesheet" href="../assets/application-6bfb772a.css" data-turbo-track="reload">
+<link rel="stylesheet" href="../assets/application.tailwind-ee41ae41.css" data-turbo-track="reload">
+    <script src="../assets/application-7385f116.js" data-turbo-track="reload" type="module"></script>
+  </head>
+
+  <body>
+    <!-- BEGIN app/views/walkthrough/impact.html.erb --><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <a class="text-blue-600 hover:text-blue-800 mb-6 inline-block" href="../">← Back to All Tools</a>
+
+  <!-- Hero Section -->
+  <div class="text-center mb-12">
+    <h1 class="text-4xl font-bold text-gray-900 mb-4">Impact Dashboard</h1>
+    <p class="text-xl text-gray-600">
+      Measuring social and environmental outcomes beyond financial metrics
+    </p>
+  </div>
+
+  <!-- Impact Stats -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+    <div class="bg-gradient-to-br from-green-400 to-green-600 rounded-lg shadow-lg p-6 text-white text-center">
+      <div class="text-4xl font-bold mb-2">€5M+</div>
+      <div class="text-sm opacity-90">Total Payouts to Rural Suppliers</div>
+    </div>
+
+    <div class="bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg shadow-lg p-6 text-white text-center">
+      <div class="text-4xl font-bold mb-2">2,500 tonnes</div>
+      <div class="text-sm opacity-90">CO₂ Emissions Saved</div>
+    </div>
+
+    <div class="bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg shadow-lg p-6 text-white text-center">
+      <div class="text-4xl font-bold mb-2">450</div>
+      <div class="text-sm opacity-90">Rural Jobs Created</div>
+    </div>
+
+    <div class="bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg shadow-lg p-6 text-white text-center">
+      <div class="text-4xl font-bold mb-2">120</div>
+      <div class="text-sm opacity-90">Rural Businesses Supported</div>
+    </div>
+  </div>
+
+  <!-- Impact Stories -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Impact Stories</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-xl mr-4">
+            M
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-900">Maria's Farm</h3>
+            <p class="text-sm text-gray-600">Organic Vegetables • Rural Spain</p>
+          </div>
+        </div>
+        <p class="text-gray-700">
+          "Willit helped me reach urban customers directly, increasing my income by 40% while reducing food waste."
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl mr-4">
+            J
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-900">Jean's Cooperative</h3>
+            <p class="text-sm text-gray-600">Local Dairy • Rural France</p>
+          </div>
+        </div>
+        <p class="text-gray-700">
+          "The marketplace connected us with restaurants in Lyon, creating stable demand for our artisanal cheeses."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Tools -->
+  <section>
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Impact Measurement Tools</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- BEGIN app/components/tool_card_component.html.erb --><div id="impact_metrics" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">Impact Metrics</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-teal-100 text-teal-800">
+      Impact Metrics
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">Social and environmental outcomes including payouts, CO₂ savings, and rural resilience.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">€5M Total Payouts</li>
+        <li class="text-sm text-gray-600">CO₂ Emissions Saved</li>
+        <li class="text-sm text-gray-600">Rural Jobs Created</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    View Impact Dashboard
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+    </div>
+  </section>
+</div>
+<!-- END app/views/walkthrough/impact.html.erb -->
+  
+
+</body></html><!-- END app/views/layouts/application.html.erb -->
