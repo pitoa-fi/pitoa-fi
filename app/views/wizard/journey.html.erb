@@ -1,0 +1,628 @@
+<div class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50"
+     data-controller="wizard wizard-progress"
+     data-wizard-stage-value="<%= @stage %>"
+     data-wizard-total-steps-value="<%= @tools.size + 2 %>"
+     data-wizard-progress-stage-value="<%= @stage %>">
+
+  <!-- Progress Bar -->
+  <div class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-4">
+      <div class="flex items-center justify-between mb-3">
+        <span class="text-sm font-medium text-gray-700" data-wizard-target="progress">Step 1 of <%= @tools.size + 2 %></span>
+        <div class="flex items-center space-x-2">
+          <span class="text-xs text-gray-500">Use arrow keys to navigate</span>
+          <%= link_to wizard_start_path, class: "text-sm text-gray-600 hover:text-gray-900 transition-colors" do %>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          <% end %>
+        </div>
+      </div>
+      <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+        <div class="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-500 ease-out"
+             data-wizard-target="progressBar"
+             style="width: <%= ((1.0 / (@tools.size + 2)) * 100).round(2) %>%"
+             role="progressbar"
+             aria-valuenow="<%= ((1.0 / (@tools.size + 2)) * 100).round(2) %>"
+             aria-valuemin="0"
+             aria-valuemax="100"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="max-w-4xl mx-auto px-4 py-12">
+
+    <!-- Step 1: Welcome & Context -->
+    <div class="wizard-step" data-wizard-target="step">
+      <div class="text-center mb-12">
+        <div class="inline-block mb-6">
+          <div class="w-20 h-20 bg-gradient-to-br <%= stage_gradient(@stage) %> rounded-2xl flex items-center justify-center shadow-lg">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Great choice!
+        </h1>
+
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed mb-8">
+          <%= stage_description(@stage) %>
+        </p>
+
+        <div class="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">
+            Your Personalized Toolkit
+          </h2>
+          <p class="text-gray-600 mb-6">
+            We've selected <%= @tools.size %> frameworks that will help you succeed at this stage.
+            Each tool builds on the previous one, creating a complete validation and growth system.
+          </p>
+
+          <div class="flex flex-wrap justify-center gap-3">
+            <% @tools.each do |tool| %>
+              <span class="px-4 py-2 bg-gradient-to-r <%= stage_gradient(@stage) %> text-white rounded-full text-sm font-medium shadow-md">
+                <%= tool.name %>
+              </span>
+            <% end %>
+          </div>
+        </div>
+
+        <button data-action="click->wizard#next"
+                class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
+          Let's Start
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Tool Steps -->
+    <% @tools.each_with_index do |tool, index| %>
+      <div class="wizard-step hidden" data-wizard-target="step">
+        <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+          <!-- Tool Header -->
+          <div class="bg-gradient-to-r <%= stage_gradient(@stage) %> p-8 text-white">
+            <div class="flex items-start justify-between mb-4">
+              <div class="flex-1">
+                <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-3">
+                  Framework <%= index + 1 %> of <%= @tools.size %>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-2">
+                  <%= tool.name %>
+                </h2>
+              </div>
+              <div class="flex-shrink-0 ml-4">
+                <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
+                  <span class="text-3xl font-bold"><%= index + 1 %></span>
+                </div>
+              </div>
+            </div>
+            <p class="text-xl text-white/90">
+              <%= tool.summary %>
+            </p>
+          </div>
+
+          <!-- Tool Content -->
+          <div class="p-8 md:p-12">
+            <div class="prose prose-lg max-w-none mb-8">
+              <%= simple_format(tool.description) %>
+            </div>
+
+            <!-- Interactive Template -->
+            <div class="mb-8">
+              <% case tool.id %>
+              <% when "lean_canvas" %>
+                <%= render partial: "wizard/lean_canvas_template" %>
+              <% when "mom_test" %>
+                <%= render partial: "wizard/mom_test_template" %>
+              <% when "landing_page" %>
+                <%= render partial: "wizard/landing_page_template" %>
+              <% when "copywriting" %>
+                <%= render partial: "wizard/copywriting_template" %>
+              <% when "spin_selling" %>
+                <%= render partial: "wizard/spin_selling_template" %>
+              <% when "growth_validation" %>
+                <%= render partial: "wizard/growth_validation_template" %>
+              <% end %>
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="bg-gray-50 rounded-2xl p-6 mb-8">
+              <h3 class="text-lg font-semibold text-gray-900 mb-4">Key Metrics to Track</h3>
+              <div class="grid md:grid-cols-3 gap-4">
+                <% tool.metrics.each do |metric| %>
+                  <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-gray-700"><%= metric %></span>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+
+            <!-- Actionable Next Steps -->
+            <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 mb-8 border-2 border-green-200"
+                 data-wizard-progress-current-tool-value="<%= tool.id %>">
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex items-start space-x-3">
+                  <svg class="w-6 h-6 text-green-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <div>
+                    <h4 class="font-semibold text-gray-900 mb-2">Your Action Plan</h4>
+                    <p class="text-sm text-gray-600 mb-4">Complete these steps to implement <%= tool.name %> in your startup:</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-3" data-wizard-progress-target="actionItem">
+                <% case tool.id %>
+                <% when "lean_canvas" %>
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="lean_canvas_fill"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Fill out your Lean Canvas above</strong> - Focus on Problem, Customer Segments, and Unique Value Prop first
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="lean_canvas_download"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Download your canvas</strong> and share it with co-founders/advisors for feedback
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="lean_canvas_test"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-gray-700">
+                      <strong>Identify your 3 riskiest assumptions</strong> to test first (usually Problem, UVP, and Channels)
+                    </span>
+                  </label>
+
+                <% when "mom_test" %>
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="mom_test_list"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>List 10 people</strong> who match your customer segment and reach out to schedule 20-min calls
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="mom_test_script"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Write your interview script</strong> using the template above - focus on their past behavior, not hypotheticals
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="mom_test_interviews"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Complete 5 interviews this week</strong> and document: real problems found, current solutions they use, willingness to pay signals
+                    </span>
+                  </label>
+
+                <% when "landing_page" %>
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="landing_page_copy"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Write your headline and subheadline</strong> based on customer interview insights
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="landing_page_build"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Build your landing page today</strong> using Carrd, Webflow, or simple HTML - ship within 4 hours
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="landing_page_traffic"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Drive 100 visitors</strong> from your network, communities, or $50 in ads - track conversion rate
+                    </span>
+                  </label>
+
+                <% when "copywriting" %>
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="copy_audit"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Audit your current copy</strong> - Does it focus on benefits (not features)? Is the CTA clear?
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="copy_rewrite"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Rewrite using PAS or AIDA</strong> - Pick one framework and apply it to your landing page headline + body
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="copy_ab_test"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>A/B test 2 headlines</strong> - Send equal traffic to each version and measure which converts better
+                    </span>
+                  </label>
+
+                <% when "spin_selling" %>
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="spin_script"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Prepare your SPIN script</strong> - Write 3 questions for each category (S, P, I, N)
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="spin_calls"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Book 3 discovery calls</strong> this week with qualified B2B prospects
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="spin_refine"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Refine based on feedback</strong> - Record calls, note which questions got best responses, iterate
+                    </span>
+                  </label>
+
+                <% when "growth_validation" %>
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="growth_loop_pick"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Pick your primary growth loop</strong> - Viral, Content, or Paid based on your product type
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="growth_loop_build"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Build MVP of the loop</strong> - Simple invite mechanism, basic SEO, or small ad test ($100)
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="growth_loop_measure"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Measure & optimize weekly</strong> - Track K-factor/conversion/cycle time and improve one metric at a time
+                    </span>
+                  </label>
+
+                <% else %>
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="<%= tool.id %>_review"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Review and understand</strong> the <%= tool.name %> framework
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="<%= tool.id %>_apply"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Apply to your startup</strong> - <%= tool.cta %>
+                    </span>
+                  </label>
+                <% end %>
+              </div>
+
+              <!-- Progress Summary -->
+              <div class="mt-4 pt-4 border-t border-green-200">
+                <p class="text-sm text-gray-600" data-wizard-progress-target="progressIndicator">
+                  0/3 actions completed
+                </p>
+              </div>
+
+              <!-- Mark as Complete Button -->
+              <div class="mt-4">
+                <button data-action="click->wizard-progress#markToolCompleted"
+                        class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-600 to-green-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  Mark Framework as Complete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex items-center justify-between mt-8">
+          <button data-action="click->wizard#previous"
+                  data-wizard-target="prevBtn"
+                  class="inline-flex items-center px-6 py-3 bg-white text-gray-700 font-semibold rounded-xl border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50 transition-all duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            Previous
+          </button>
+
+          <button data-action="click->wizard#next"
+                  data-wizard-target="nextBtn"
+                  class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
+            Next Framework
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    <% end %>
+
+    <!-- Final Step: Summary & Next Steps -->
+    <div class="wizard-step hidden" data-wizard-target="step">
+      <div class="text-center">
+        <div class="inline-block mb-6">
+          <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center shadow-lg animate-bounce-slow">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Your Toolkit is Ready!
+        </h1>
+
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed mb-8">
+          You now have <%= @tools.size %> proven frameworks to guide your startup journey.
+          Remember: <strong>implementation beats perfection</strong>. Start with one tool today.
+        </p>
+
+        <!-- Progress Export -->
+        <div class="mb-12 flex justify-center gap-4">
+          <button data-action="click->wizard-progress#exportProgress"
+                  class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Export Your Progress
+          </button>
+
+          <button data-action="click->wizard-progress#resetProgress"
+                  class="inline-flex items-center px-6 py-3 bg-gray-200 text-gray-700 font-semibold rounded-xl hover:bg-gray-300 transition-all duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            Reset Progress
+          </button>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <% @tools.each do |tool| %>
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+              <h3 class="font-bold text-gray-900 mb-2"><%= tool.name %></h3>
+              <p class="text-sm text-gray-600 mb-4"><%= tool.summary %></p>
+              <span class="inline-block px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
+                <%= tool.category_display %>
+              </span>
+            </div>
+          <% end %>
+        </div>
+
+        <!-- Recommended Resources -->
+        <div class="mb-12 max-w-4xl mx-auto">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">📚 Recommended Resources</h2>
+          <div class="grid md:grid-cols-3 gap-6 text-left">
+            <div class="bg-white rounded-xl p-6 shadow-lg border-2 border-blue-100">
+              <div class="text-3xl mb-3">📖</div>
+              <h3 class="font-bold text-gray-900 mb-2">Books</h3>
+              <ul class="text-sm text-gray-600 space-y-2">
+                <li>• <strong>The Mom Test</strong> by Rob Fitzpatrick</li>
+                <li>• <strong>Lean Startup</strong> by Eric Ries</li>
+                <li>• <strong>Traction</strong> by Gabriel Weinberg</li>
+                <li>• <strong>$100M Offers</strong> by Alex Hormozi</li>
+              </ul>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-lg border-2 border-purple-100">
+              <div class="text-3xl mb-3">🎓</div>
+              <h3 class="font-bold text-gray-900 mb-2">Courses</h3>
+              <ul class="text-sm text-gray-600 space-y-2">
+                <li>• <a href="https://www.ycombinator.com/library" target="_blank" class="text-blue-600 hover:underline">YC Startup School</a> (Free)</li>
+                <li>• <a href="https://www.reforge.com" target="_blank" class="text-blue-600 hover:underline">Reforge Growth Series</a></li>
+                <li>• <a href="https://learn.nathanbarry.com" target="_blank" class="text-blue-600 hover:underline">Nathan Barry's courses</a></li>
+              </ul>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-lg border-2 border-green-100">
+              <div class="text-3xl mb-3">🛠️</div>
+              <h3 class="font-bold text-gray-900 mb-2">Tools</h3>
+              <ul class="text-sm text-gray-600 space-y-2">
+                <li>• <a href="https://carrd.co" target="_blank" class="text-blue-600 hover:underline">Carrd</a> - Landing pages</li>
+                <li>• <a href="https://useplausible.com" target="_blank" class="text-blue-600 hover:underline">Plausible</a> - Analytics</li>
+                <li>• <a href="https://www.figma.com" target="_blank" class="text-blue-600 hover:underline">Figma</a> - Design</li>
+                <li>• <a href="https://airtable.com" target="_blank" class="text-blue-600 hover:underline">Airtable</a> - Tracking</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Community -->
+        <div class="mb-12 max-w-2xl mx-auto bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 border-2 border-orange-200">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">🚀 Keep Building!</h2>
+          <p class="text-gray-700 mb-4">
+            The best way to get traction is to implement one framework at a time. Don't try to do everything at once.
+          </p>
+          <div class="bg-white rounded-xl p-4 mb-4">
+            <h3 class="font-bold text-gray-900 mb-2">Your Week 1 Action Plan:</h3>
+            <ol class="text-sm text-gray-700 space-y-2 list-decimal list-inside">
+              <li>Fill out your Lean Canvas (identify riskiest assumptions)</li>
+              <li>Complete 5 customer interviews using Mom Test principles</li>
+              <li>Build and launch a simple landing page</li>
+              <li>Drive 100 visitors and measure conversion rate</li>
+              <li>Iterate based on learnings</li>
+            </ol>
+          </div>
+          <p class="text-sm text-gray-600 italic">
+            "The best time to start was yesterday. The second best time is now."
+          </p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <%= link_to all_tools_path,
+              class: "inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200" do %>
+            Explore All Tools
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          <% end %>
+
+          <%= link_to wizard_start_path,
+              class: "inline-flex items-center px-6 py-3 bg-white text-gray-700 font-semibold rounded-xl border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50 transition-all duration-200" do %>
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            Try Another Stage
+          <% end %>
+        </div>
+
+        <!-- Previous Button -->
+        <div class="mt-8">
+          <button data-action="click->wizard#previous"
+                  data-wizard-target="prevBtn"
+                  class="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Last Framework
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<% content_for :head do %>
+  <style>
+    .wizard-step {
+      animation: slideIn 0.5s ease-out;
+    }
+
+    .wizard-step.fade-out {
+      animation: fadeOut 0.3s ease-in forwards;
+    }
+
+    .wizard-step.fade-in {
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateX(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  </style>
+<% end %>

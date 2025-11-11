@@ -1,0 +1,201 @@
+<div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-8 border-2 border-blue-200"
+     data-controller="lean-canvas"
+     data-lean-canvas-canvas-id-value="lean_canvas">
+
+  <div class="mb-6">
+    <h3 class="text-2xl font-bold text-gray-900 mb-2">Interactive Lean Canvas</h3>
+    <p class="text-gray-600">Fill in each section. Your progress is automatically saved.</p>
+  </div>
+
+  <!-- Grid Layout -->
+  <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
+
+    <!-- Problem -->
+    <div class="lg:col-span-1 bg-white rounded-xl p-4 shadow-md">
+      <label class="block text-sm font-bold text-gray-900 mb-2">
+        1. Problem
+        <span class="block text-xs font-normal text-gray-500 mt-1">Top 3 problems</span>
+      </label>
+      <textarea
+        data-lean-canvas-target="field"
+        data-field-name="problem"
+        data-action="input->lean-canvas#saveField"
+        class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+        rows="6"
+        placeholder="1.&#10;2.&#10;3."></textarea>
+    </div>
+
+    <!-- Solution -->
+    <div class="lg:col-span-1 bg-white rounded-xl p-4 shadow-md">
+      <label class="block text-sm font-bold text-gray-900 mb-2">
+        4. Solution
+        <span class="block text-xs font-normal text-gray-500 mt-1">Top 3 features</span>
+      </label>
+      <textarea
+        data-lean-canvas-target="field"
+        data-field-name="solution"
+        data-action="input->lean-canvas#saveField"
+        class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+        rows="6"
+        placeholder="1.&#10;2.&#10;3."></textarea>
+    </div>
+
+    <!-- Unique Value Proposition -->
+    <div class="lg:col-span-1 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl p-4 shadow-md">
+      <label class="block text-sm font-bold text-white mb-2">
+        3. Unique Value Proposition
+        <span class="block text-xs font-normal text-blue-100 mt-1">Single, clear message</span>
+      </label>
+      <textarea
+        data-lean-canvas-target="field"
+        data-field-name="uvp"
+        data-action="input->lean-canvas#saveField"
+        class="w-full px-3 py-2 border-2 border-white/20 bg-white/10 text-white placeholder-white/60 rounded-lg text-sm focus:ring-2 focus:ring-white focus:border-transparent resize-none"
+        rows="6"
+        placeholder="What makes you different and worth buying?"></textarea>
+    </div>
+
+    <!-- Unfair Advantage -->
+    <div class="lg:col-span-1 bg-white rounded-xl p-4 shadow-md">
+      <label class="block text-sm font-bold text-gray-900 mb-2">
+        9. Unfair Advantage
+        <span class="block text-xs font-normal text-gray-500 mt-1">Can't be copied</span>
+      </label>
+      <textarea
+        data-lean-canvas-target="field"
+        data-field-name="advantage"
+        data-action="input->lean-canvas#saveField"
+        class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+        rows="6"
+        placeholder="Inside information?&#10;Expert endorsements?&#10;Team?"></textarea>
+    </div>
+
+    <!-- Customer Segments -->
+    <div class="lg:col-span-1 bg-white rounded-xl p-4 shadow-md">
+      <label class="block text-sm font-bold text-gray-900 mb-2">
+        2. Customer Segments
+        <span class="block text-xs font-normal text-gray-500 mt-1">Target customers</span>
+      </label>
+      <textarea
+        data-lean-canvas-target="field"
+        data-field-name="segments"
+        data-action="input->lean-canvas#saveField"
+        class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+        rows="6"
+        placeholder="Who has this problem?"></textarea>
+    </div>
+
+  </div>
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-4 mt-4">
+
+    <!-- Key Metrics -->
+    <div class="lg:col-span-1 bg-white rounded-xl p-4 shadow-md">
+      <label class="block text-sm font-bold text-gray-900 mb-2">
+        8. Key Metrics
+        <span class="block text-xs font-normal text-gray-500 mt-1">Key activities</span>
+      </label>
+      <textarea
+        data-lean-canvas-target="field"
+        data-field-name="metrics"
+        data-action="input->lean-canvas#saveField"
+        class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+        rows="6"
+        placeholder="Signups?&#10;Active users?&#10;Revenue?"></textarea>
+    </div>
+
+    <!-- Channels -->
+    <div class="lg:col-span-2 bg-white rounded-xl p-4 shadow-md">
+      <label class="block text-sm font-bold text-gray-900 mb-2">
+        5. Channels
+        <span class="block text-xs font-normal text-gray-500 mt-1">Path to customers</span>
+      </label>
+      <textarea
+        data-lean-canvas-target="field"
+        data-field-name="channels"
+        data-action="input->lean-canvas#saveField"
+        class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+        rows="6"
+        placeholder="How will you reach them?"></textarea>
+    </div>
+
+    <!-- Early Adopters -->
+    <div class="lg:col-span-2 bg-white rounded-xl p-4 shadow-md">
+      <label class="block text-sm font-bold text-gray-900 mb-2">
+        Early Adopters
+        <span class="block text-xs font-normal text-gray-500 mt-1">Who will pay first?</span>
+      </label>
+      <textarea
+        data-lean-canvas-target="field"
+        data-field-name="early_adopters"
+        data-action="input->lean-canvas#saveField"
+        class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+        rows="6"
+        placeholder="Who needs this most urgently?"></textarea>
+    </div>
+
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-4 mt-4">
+
+    <!-- Cost Structure -->
+    <div class="bg-white rounded-xl p-4 shadow-md">
+      <label class="block text-sm font-bold text-gray-900 mb-2">
+        7. Cost Structure
+        <span class="block text-xs font-normal text-gray-500 mt-1">Main costs</span>
+      </label>
+      <textarea
+        data-lean-canvas-target="field"
+        data-field-name="costs"
+        data-action="input->lean-canvas#saveField"
+        class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+        rows="6"
+        placeholder="Development? Hosting? Marketing?"></textarea>
+    </div>
+
+    <!-- Revenue Streams -->
+    <div class="bg-white rounded-xl p-4 shadow-md">
+      <label class="block text-sm font-bold text-gray-900 mb-2">
+        6. Revenue Streams
+        <span class="block text-xs font-normal text-gray-500 mt-1">How will you make money?</span>
+      </label>
+      <textarea
+        data-lean-canvas-target="field"
+        data-field-name="revenue"
+        data-action="input->lean-canvas#saveField"
+        class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+        rows="6"
+        placeholder="Subscription? Commission? Ads?"></textarea>
+    </div>
+
+  </div>
+
+  <!-- Actions -->
+  <div class="flex flex-wrap items-center justify-between gap-4 mt-6 pt-6 border-t border-gray-200">
+    <div class="flex gap-3">
+      <button
+        data-lean-canvas-target="downloadBtn"
+        data-action="click->lean-canvas#downloadCanvas"
+        class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+        Download Canvas
+      </button>
+
+      <button
+        data-lean-canvas-target="clearBtn"
+        data-action="click->lean-canvas#clearCanvas"
+        class="inline-flex items-center px-6 py-3 bg-white text-gray-700 font-semibold rounded-xl border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50 transition-all duration-200">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+        </svg>
+        Clear All
+      </button>
+    </div>
+
+    <div class="text-sm text-gray-500">
+      Auto-saved to your browser
+    </div>
+  </div>
+</div>

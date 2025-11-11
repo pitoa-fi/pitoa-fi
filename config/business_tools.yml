@@ -1,0 +1,301 @@
+---
+tools:
+  - id: aarrr
+    name: AARRR (Pirate Metrics)
+    summary: Acquisition, Activation, Retention, Revenue, Referral framework for tracking marketplace growth funnel.
+    category: growth_engines
+    metrics:
+      - Acquisition Rate
+      - Activation %
+      - Monthly Retention
+      - Revenue per User
+      - Viral Coefficient
+    cta: View Funnel Analysis
+
+  - id: swot
+    name: SWOT Analysis
+    summary: Strengths, Weaknesses, Opportunities, Threats analysis for marketplace positioning.
+    category: market_strategy
+    metrics:
+      - Competitive Advantages
+      - Risk Factors
+      - Market Opportunities
+    cta: Explore Analysis
+
+  - id: lean_startup
+    name: Lean Startup
+    summary: Build-Measure-Learn loops for rapid marketplace hypothesis testing and iteration.
+    category: growth_engines
+    metrics:
+      - Cycle Time
+      - Learning Velocity
+      - Pivot Count
+    cta: View Iterations
+
+  - id: unit_economics
+    name: Unit Economics
+    summary: Per-transaction profitability analysis including CAC, LTV, and contribution margins.
+    category: financial_backbone
+    metrics:
+      - CAC (Customer Acquisition Cost)
+      - LTV (Lifetime Value)
+      - LTV:CAC Ratio
+      - Contribution Margin
+    cta: Calculate Economics
+
+  - id: north_star
+    name: North Star Metric
+    summary: GMV (Gross Merchandise Value) as the primary success indicator for marketplace health.
+    category: north_star_kpis
+    metrics:
+      - Current GMV
+      - GMV Growth Rate
+      - Target GMV
+    cta: Track Progress
+
+  - id: okr
+    name: OKRs (Objectives & Key Results)
+    summary: Goal-setting framework aligning team efforts toward marketplace milestones.
+    category: north_star_kpis
+    metrics:
+      - Objectives Set
+      - Key Results Achieved
+      - Completion Rate
+    cta: View Current OKRs
+
+  - id: supply_demand
+    name: Supply-Demand Balance
+    summary: Framework for managing marketplace liquidity and matching efficiency.
+    category: market_strategy
+    metrics:
+      - Supply Growth
+      - Demand Growth
+      - Match Rate
+      - Time to Match
+    cta: View Balance Dashboard
+
+  - id: commission_model
+    name: Commission Model
+    summary: Revenue structure based on transaction fees and value-added services.
+    category: financial_backbone
+    metrics:
+      - Commission Rate
+      - Average Transaction Fee
+      - Service Revenue
+    cta: Explore Model
+
+  - id: tam_sam_som
+    name: TAM/SAM/SOM
+    summary: Total, Serviceable, and Obtainable market size analysis for rural/peri-urban segments.
+    category: market_strategy
+    metrics:
+      - Total Addressable Market
+      - Serviceable Market
+      - Obtainable Market Share
+    cta: View Market Sizing
+
+  - id: cohort_analysis
+    name: Cohort Analysis
+    summary: User behavior tracking across acquisition cohorts to measure retention and engagement.
+    category: growth_engines
+    metrics:
+      - Cohort Retention
+      - Revenue per Cohort
+      - Engagement Trends
+    cta: Analyze Cohorts
+
+  - id: impact_metrics
+    name: Impact Metrics
+    summary: Social and environmental outcomes including payouts, CO₂ savings, and rural resilience.
+    category: impact_metrics
+    metrics:
+      - €5M Total Payouts
+      - CO₂ Emissions Saved
+      - Rural Jobs Created
+    cta: View Impact Dashboard
+
+  - id: go_no_go
+    name: Go/No-Go Decision Gates
+    summary: Milestone-based checkpoints with success criteria for stage progression.
+    category: decision_gates
+    metrics:
+      - Gates Passed
+      - Current Stage
+      - Next Milestone
+    cta: View Timeline
+
+  - id: financial_projections
+    name: 18-Month Projections
+    summary: Revenue, cost, and profitability forecasts with sensitivity scenarios.
+    category: financial_backbone
+    metrics:
+      - Revenue Forecast
+      - Cost Projections
+      - Break-even Point
+    cta: View Projections
+
+  - id: growth_loops
+    name: Growth Loops
+    summary: Self-reinforcing cycles that drive organic marketplace expansion.
+    category: growth_engines
+    metrics:
+      - Loop Velocity
+      - Activation per Loop
+      - Viral Factor
+    cta: Explore Loops
+
+  - id: marketplace_density
+    name: Marketplace Density
+    summary: Geographic concentration analysis for supply and demand optimization.
+    category: market_strategy
+    metrics:
+      - Density Score
+      - Coverage Area
+      - Active Regions
+    cta: View Heat Map
+
+  - id: buyer_seller_ratio
+    name: Buyer-Seller Ratio
+    summary: Balance metric ensuring adequate supply for buyer demand in each segment.
+    category: north_star_kpis
+    metrics:
+      - Current Ratio
+      - Target Ratio
+      - Segment Breakdown
+    cta: View Ratios
+
+  - id: aov_analysis
+    name: Average Order Value (AOV)
+    summary: Transaction size analysis to optimize pricing and upsell strategies.
+    category: financial_backbone
+    metrics:
+      - Current AOV
+      - AOV Growth
+      - Segment AOV
+    cta: Analyze Orders
+
+  - id: competitive_positioning
+    name: Competitive Positioning
+    summary: Differentiation strategy analysis versus existing marketplace alternatives.
+    category: market_strategy
+    metrics:
+      - Unique Value Props
+      - Competitive Advantages
+      - Market Gap Score
+    cta: View Positioning
+
+  - id: supply_first_motion
+    name: Supply-First Motion
+    summary: Strategic approach prioritizing supplier acquisition and activation before demand scaling.
+    category: market_strategy
+    metrics:
+      - Supplier Onboarding Rate
+      - Supplier Activation %
+      - Listings Quality Score
+    cta: View Strategy
+
+  - id: retention_strategy
+    name: Retention Strategy
+    summary: Playbook for reducing churn and increasing lifetime engagement on both sides.
+    category: growth_engines
+    metrics:
+      - Retention Rate
+      - Churn Rate
+      - Engagement Score
+    cta: View Playbook
+
+  - id: lean_canvas
+    name: Lean Canvas
+    summary: One-page business model that helps you deconstruct your idea into its key assumptions across 9 building blocks.
+    category: validation_tools
+    wizard_priority: 1
+    wizard_stage: [idea, mvp]
+    metrics:
+      - Problem-Solution Fit
+      - Unique Value Proposition
+      - Key Assumptions Tested
+    cta: Build Your Canvas
+    description: |
+      Lean Canvas is your startup's blueprint. Instead of a 40-page business plan, it's a single page divided into 9 blocks:
+      Problem, Solution, Key Metrics, Unique Value Proposition, Unfair Advantage, Channels, Customer Segments, Cost Structure, and Revenue Streams.
+      Start here to map out your business model and identify your riskiest assumptions.
+
+  - id: mom_test
+    name: The Mom Test
+    summary: Customer interview framework that helps you ask questions that reveal truth, even from people trying to be nice.
+    category: validation_tools
+    wizard_priority: 2
+    wizard_stage: [idea, mvp, traction]
+    metrics:
+      - Interviews Completed
+      - Real Problems Discovered
+      - False Positives Avoided
+    cta: Learn Interview Techniques
+    description: |
+      The Mom Test is about asking the right questions. Don't ask "Would you buy my product?" Instead ask about their life,
+      their problems, and what they currently do. Talk about their life instead of your idea. Ask about specifics in the past
+      instead of generics or opinions about the future. Talk less and listen more.
+
+  - id: landing_page
+    name: Landing Page Validation
+    summary: Build a simple page to test demand before building your product. Measure real interest through email signups or pre-orders.
+    category: validation_tools
+    wizard_priority: 3
+    wizard_stage: [idea, mvp]
+    metrics:
+      - Conversion Rate
+      - Email Signups
+      - Pre-orders / Commitments
+    cta: Design Your Landing Page
+    description: |
+      A landing page is your first product. It should clearly articulate your value proposition, show how you solve the problem,
+      include social proof if available, and have a clear call-to-action. Use tools like Carrd, Webflow, or a simple HTML page.
+      Drive traffic through your network, communities, or small ad spend. Measure everything.
+
+  - id: copywriting
+    name: Conversion Copywriting
+    summary: Framework for writing clear, compelling copy that converts visitors into customers using proven psychological triggers.
+    category: validation_tools
+    wizard_priority: 4
+    wizard_stage: [mvp, traction, scaling]
+    metrics:
+      - Message Clarity Score
+      - Value Prop Strength
+      - CTA Conversion Rate
+    cta: Improve Your Copy
+    description: |
+      Great copy follows a formula: capture attention with a clear headline, articulate the problem, present your solution,
+      show proof it works, overcome objections, and create urgency. Use frameworks like PAS (Problem-Agitate-Solution),
+      AIDA (Attention-Interest-Desire-Action), or the Before-After-Bridge method.
+
+  - id: spin_selling
+    name: SPIN Selling Framework
+    summary: B2B sales methodology using Situation, Problem, Implication, and Need-payoff questions to uncover customer needs.
+    category: validation_tools
+    wizard_priority: 5
+    wizard_stage: [traction, scaling]
+    metrics:
+      - Discovery Call Quality
+      - Needs Identified
+      - Conversion to Proposal
+    cta: Master SPIN Questions
+    description: |
+      SPIN Selling works for complex B2B sales. Situation questions establish context, Problem questions uncover difficulties,
+      Implication questions make the problem urgent, and Need-payoff questions get buyers to articulate the value of your solution.
+      Don't pitch too early - spend 70% of the call asking questions and listening.
+
+  - id: growth_validation
+    name: Growth & Validation Loops
+    summary: Build systems to continuously test assumptions, measure what matters, and create feedback loops that drive sustainable growth.
+    category: validation_tools
+    wizard_priority: 6
+    wizard_stage: [mvp, traction, scaling]
+    metrics:
+      - Weekly Active Experiments
+      - Learning Velocity
+      - Growth Loop Strength
+    cta: Build Your Growth System
+    description: |
+      Growth isn't about hacks - it's about building loops. A growth loop is where an input generates an output that creates more input.
+      Examples: User invites friends (viral loop), content generates SEO traffic (content loop), paid ads fund more ads (paid loop).
+      Combine with validation: every loop should test an assumption and generate learning.

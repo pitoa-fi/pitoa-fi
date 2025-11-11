@@ -1,0 +1,47 @@
+<div class="bg-white rounded-lg shadow-md p-6 text-center" data-controller="kpi">
+  <h4 class="text-sm font-semibold text-gray-600 mb-4"><%= title %></h4>
+
+  <div class="relative inline-flex items-center justify-center">
+    <svg class="w-32 h-32">
+      <circle
+        cx="64"
+        cy="64"
+        r="56"
+        stroke="currentColor"
+        stroke-width="8"
+        fill="none"
+        class="text-gray-200"
+      />
+      <circle
+        cx="64"
+        cy="64"
+        r="56"
+        stroke="currentColor"
+        stroke-width="8"
+        fill="none"
+        class="<%= color_class %>"
+        stroke-dasharray="<%= 2 * Math::PI * 56 %>"
+        stroke-dashoffset="<%= 2 * Math::PI * 56 * (1 - percentage / 100.0) %>"
+        transform="rotate(-90 64 64)"
+        style="transition: stroke-dashoffset 1s ease-in-out;"
+      />
+    </svg>
+    <div class="absolute inset-0 flex flex-col items-center justify-center">
+      <span class="text-2xl font-bold <%= color_class %>" data-kpi-target="value">
+        <%= display_value %>
+      </span>
+      <% if display_target %>
+        <span class="text-xs text-gray-500">of <%= display_target %></span>
+      <% end %>
+    </div>
+  </div>
+
+  <% if target %>
+    <div class="mt-4">
+      <div class="w-full bg-gray-200 rounded-full h-2">
+        <div class="h-2 rounded-full <%= color_class.gsub('text-', 'bg-') %>" style="width: <%= [percentage, 100].min %>%"></div>
+      </div>
+      <p class="text-xs text-gray-500 mt-1"><%= percentage %>% of target</p>
+    </div>
+  <% end %>
+</div>

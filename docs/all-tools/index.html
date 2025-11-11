@@ -1,0 +1,744 @@
+<!DOCTYPE html><!-- BEGIN app/views/layouts/application.html.erb --><html><head>
+    <title>Pitoa</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="peinRQ2zu685tgpKHuQccwVbmItvk77GEpJnmPD4XaOeWvhf1XglTyXzBhetvBbiyb294OuJVinueCKNmdpwiw">
+    
+
+    
+
+
+    <link rel="icon" href="../icon.png" type="image/png">
+    <link rel="icon" href="../icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../icon.png">
+
+    <link rel="stylesheet" href="../assets/application-6bfb772a.css" data-turbo-track="reload">
+<link rel="stylesheet" href="../assets/application.tailwind-ee41ae41.css" data-turbo-track="reload">
+    <script src="../assets/application-7385f116.js" data-turbo-track="reload" type="module"></script>
+  </head>
+
+  <body>
+    <!-- BEGIN app/views/walkthrough/index.html.erb --><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <!-- Hero Section -->
+  <div class="text-center mb-12" data-controller="language-toggle" data-language-toggle-default-lang-value="en">
+    <p class="uppercase text-sm tracking-wide text-blue-600 mb-3" data-language-toggle-target="copy" data-lang="en">
+      Traction • Pitoa
+    </p>
+    <p class="uppercase text-sm tracking-wide text-blue-600 mb-3 hidden" data-language-toggle-target="copy" data-lang="fi">
+      Traktio • Pitoa
+    </p>
+    <h1 class="text-4xl font-bold text-gray-900 mb-4" data-language-toggle-target="copy" data-lang="en">
+      Startup Traction Toolkit
+    </h1>
+    <h1 class="text-4xl font-bold text-gray-900 mb-4 hidden" data-language-toggle-target="copy" data-lang="fi">
+      Startupien pitotyökalupakki
+    </h1>
+
+    <div class="flex justify-center gap-3 mb-6">
+      <button type="button" class="px-4 py-2 rounded-lg bg-blue-600 text-white transition-colors" data-language-toggle-target="button" data-action="language-toggle#switch" data-lang="en">
+        English
+      </button>
+      <button type="button" class="px-4 py-2 rounded-lg bg-gray-100 text-gray-700 transition-colors" data-language-toggle-target="button" data-action="language-toggle#switch" data-lang="fi">
+        Suomi
+      </button>
+    </div>
+
+    <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-language-toggle-target="copy" data-lang="en">
+      Traction is built through deliberate practice. Pitoa curates 20 simple scenes—workshops, scorecards, and checklists—
+      that help early teams launch faster, validate demand, and speak the same traction language with partners and investors.
+    </p>
+    <p class="text-xl text-gray-600 max-w-3xl mx-auto hidden" data-language-toggle-target="copy" data-lang="fi">
+      Pitoa syntyy tavoitteellisesta tekemisestä. Tämä työkalu kokoaa 20 käytännön kohtausta—työpajoja, mittaristoja ja
+      tarkistuslistoja—joiden avulla alkuvaiheen tiimit voivat käynnistää nopeammin, todentaa kysyntää ja kertoa pitotarinan
+      samaa kieltä puhuen sijoittajille ja kumppaneille.
+    </p>
+  </div>
+
+  <!-- Navigation Pills -->
+  <div class="flex flex-wrap justify-center gap-4 mb-12">
+    <a class="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all transform hover:-translate-y-0.5" href="../wizard/start">
+      <span class="inline-flex items-center">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+        </svg>
+        Interactive Wizard
+      </span>
+</a>    <a class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors" href="../all-tools">All Tools</a>
+    <a class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors" href="../metrics">Metrics &amp; KPIs</a>
+    <a class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors" href="../timeline">Timeline</a>
+    <a class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors" href="../impact">Impact</a>
+  </div>
+
+  <!-- Tools Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- BEGIN app/components/tool_card_component.html.erb --><div id="aarrr" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">AARRR (Pirate Metrics)</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-green-100 text-green-800">
+      Growth Engines
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">Acquisition, Activation, Retention, Revenue, Referral framework for tracking marketplace growth funnel.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">Acquisition Rate</li>
+        <li class="text-sm text-gray-600">Activation %</li>
+        <li class="text-sm text-gray-600">Monthly Retention</li>
+        <li class="text-sm text-gray-600">Revenue per User</li>
+        <li class="text-sm text-gray-600">Viral Coefficient</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    View Funnel Analysis
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+      <!-- BEGIN app/components/tool_card_component.html.erb --><div id="swot" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">SWOT Analysis</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-orange-100 text-orange-800">
+      Market Strategy
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">Strengths, Weaknesses, Opportunities, Threats analysis for marketplace positioning.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">Competitive Advantages</li>
+        <li class="text-sm text-gray-600">Risk Factors</li>
+        <li class="text-sm text-gray-600">Market Opportunities</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    Explore Analysis
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+      <!-- BEGIN app/components/tool_card_component.html.erb --><div id="lean_startup" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">Lean Startup</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-green-100 text-green-800">
+      Growth Engines
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">Build-Measure-Learn loops for rapid marketplace hypothesis testing and iteration.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">Cycle Time</li>
+        <li class="text-sm text-gray-600">Learning Velocity</li>
+        <li class="text-sm text-gray-600">Pivot Count</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    View Iterations
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+      <!-- BEGIN app/components/tool_card_component.html.erb --><div id="unit_economics" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">Unit Economics</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-purple-100 text-purple-800">
+      Financial Backbone
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">Per-transaction profitability analysis including CAC, LTV, and contribution margins.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">CAC (Customer Acquisition Cost)</li>
+        <li class="text-sm text-gray-600">LTV (Lifetime Value)</li>
+        <li class="text-sm text-gray-600">LTV:CAC Ratio</li>
+        <li class="text-sm text-gray-600">Contribution Margin</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    Calculate Economics
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+      <!-- BEGIN app/components/tool_card_component.html.erb --><div id="north_star" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">North Star Metric</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800">
+      North Star Kpis
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">GMV (Gross Merchandise Value) as the primary success indicator for marketplace health.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">Current GMV</li>
+        <li class="text-sm text-gray-600">GMV Growth Rate</li>
+        <li class="text-sm text-gray-600">Target GMV</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    Track Progress
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+      <!-- BEGIN app/components/tool_card_component.html.erb --><div id="okr" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">OKRs (Objectives &amp; Key Results)</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800">
+      North Star Kpis
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">Goal-setting framework aligning team efforts toward marketplace milestones.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">Objectives Set</li>
+        <li class="text-sm text-gray-600">Key Results Achieved</li>
+        <li class="text-sm text-gray-600">Completion Rate</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    View Current OKRs
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+      <!-- BEGIN app/components/tool_card_component.html.erb --><div id="supply_demand" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">Supply-Demand Balance</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-orange-100 text-orange-800">
+      Market Strategy
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">Framework for managing marketplace liquidity and matching efficiency.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">Supply Growth</li>
+        <li class="text-sm text-gray-600">Demand Growth</li>
+        <li class="text-sm text-gray-600">Match Rate</li>
+        <li class="text-sm text-gray-600">Time to Match</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    View Balance Dashboard
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+      <!-- BEGIN app/components/tool_card_component.html.erb --><div id="commission_model" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">Commission Model</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-purple-100 text-purple-800">
+      Financial Backbone
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">Revenue structure based on transaction fees and value-added services.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">Commission Rate</li>
+        <li class="text-sm text-gray-600">Average Transaction Fee</li>
+        <li class="text-sm text-gray-600">Service Revenue</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    Explore Model
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+      <!-- BEGIN app/components/tool_card_component.html.erb --><div id="tam_sam_som" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">TAM/SAM/SOM</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-orange-100 text-orange-800">
+      Market Strategy
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">Total, Serviceable, and Obtainable market size analysis for rural/peri-urban segments.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">Total Addressable Market</li>
+        <li class="text-sm text-gray-600">Serviceable Market</li>
+        <li class="text-sm text-gray-600">Obtainable Market Share</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    View Market Sizing
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+      <!-- BEGIN app/components/tool_card_component.html.erb --><div id="cohort_analysis" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">Cohort Analysis</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-green-100 text-green-800">
+      Growth Engines
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">User behavior tracking across acquisition cohorts to measure retention and engagement.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">Cohort Retention</li>
+        <li class="text-sm text-gray-600">Revenue per Cohort</li>
+        <li class="text-sm text-gray-600">Engagement Trends</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    Analyze Cohorts
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+      <!-- BEGIN app/components/tool_card_component.html.erb --><div id="impact_metrics" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">Impact Metrics</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-teal-100 text-teal-800">
+      Impact Metrics
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">Social and environmental outcomes including payouts, CO₂ savings, and rural resilience.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">€5M Total Payouts</li>
+        <li class="text-sm text-gray-600">CO₂ Emissions Saved</li>
+        <li class="text-sm text-gray-600">Rural Jobs Created</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    View Impact Dashboard
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+      <!-- BEGIN app/components/tool_card_component.html.erb --><div id="go_no_go" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">Go/No-Go Decision Gates</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-red-100 text-red-800">
+      Decision Gates
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">Milestone-based checkpoints with success criteria for stage progression.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">Gates Passed</li>
+        <li class="text-sm text-gray-600">Current Stage</li>
+        <li class="text-sm text-gray-600">Next Milestone</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    View Timeline
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+      <!-- BEGIN app/components/tool_card_component.html.erb --><div id="financial_projections" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">18-Month Projections</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-purple-100 text-purple-800">
+      Financial Backbone
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">Revenue, cost, and profitability forecasts with sensitivity scenarios.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">Revenue Forecast</li>
+        <li class="text-sm text-gray-600">Cost Projections</li>
+        <li class="text-sm text-gray-600">Break-even Point</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    View Projections
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+      <!-- BEGIN app/components/tool_card_component.html.erb --><div id="growth_loops" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">Growth Loops</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-green-100 text-green-800">
+      Growth Engines
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">Self-reinforcing cycles that drive organic marketplace expansion.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">Loop Velocity</li>
+        <li class="text-sm text-gray-600">Activation per Loop</li>
+        <li class="text-sm text-gray-600">Viral Factor</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    Explore Loops
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+      <!-- BEGIN app/components/tool_card_component.html.erb --><div id="marketplace_density" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">Marketplace Density</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-orange-100 text-orange-800">
+      Market Strategy
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">Geographic concentration analysis for supply and demand optimization.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">Density Score</li>
+        <li class="text-sm text-gray-600">Coverage Area</li>
+        <li class="text-sm text-gray-600">Active Regions</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    View Heat Map
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+      <!-- BEGIN app/components/tool_card_component.html.erb --><div id="buyer_seller_ratio" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">Buyer-Seller Ratio</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800">
+      North Star Kpis
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">Balance metric ensuring adequate supply for buyer demand in each segment.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">Current Ratio</li>
+        <li class="text-sm text-gray-600">Target Ratio</li>
+        <li class="text-sm text-gray-600">Segment Breakdown</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    View Ratios
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+      <!-- BEGIN app/components/tool_card_component.html.erb --><div id="aov_analysis" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">Average Order Value (AOV)</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-purple-100 text-purple-800">
+      Financial Backbone
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">Transaction size analysis to optimize pricing and upsell strategies.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">Current AOV</li>
+        <li class="text-sm text-gray-600">AOV Growth</li>
+        <li class="text-sm text-gray-600">Segment AOV</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    Analyze Orders
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+      <!-- BEGIN app/components/tool_card_component.html.erb --><div id="competitive_positioning" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">Competitive Positioning</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-orange-100 text-orange-800">
+      Market Strategy
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">Differentiation strategy analysis versus existing marketplace alternatives.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">Unique Value Props</li>
+        <li class="text-sm text-gray-600">Competitive Advantages</li>
+        <li class="text-sm text-gray-600">Market Gap Score</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    View Positioning
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+      <!-- BEGIN app/components/tool_card_component.html.erb --><div id="supply_first_motion" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">Supply-First Motion</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-orange-100 text-orange-800">
+      Market Strategy
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">Strategic approach prioritizing supplier acquisition and activation before demand scaling.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">Supplier Onboarding Rate</li>
+        <li class="text-sm text-gray-600">Supplier Activation %</li>
+        <li class="text-sm text-gray-600">Listings Quality Score</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    View Strategy
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+      <!-- BEGIN app/components/tool_card_component.html.erb --><div id="retention_strategy" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">Retention Strategy</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-green-100 text-green-800">
+      Growth Engines
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">Playbook for reducing churn and increasing lifetime engagement on both sides.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">Retention Rate</li>
+        <li class="text-sm text-gray-600">Churn Rate</li>
+        <li class="text-sm text-gray-600">Engagement Score</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    View Playbook
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+      <!-- BEGIN app/components/tool_card_component.html.erb --><div id="lean_canvas" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">Lean Canvas</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-gray-100 text-gray-800">
+      Validation Tools
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">One-page business model that helps you deconstruct your idea into its key assumptions across 9 building blocks.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">Problem-Solution Fit</li>
+        <li class="text-sm text-gray-600">Unique Value Proposition</li>
+        <li class="text-sm text-gray-600">Key Assumptions Tested</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    Build Your Canvas
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+      <!-- BEGIN app/components/tool_card_component.html.erb --><div id="mom_test" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">The Mom Test</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-gray-100 text-gray-800">
+      Validation Tools
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">Customer interview framework that helps you ask questions that reveal truth, even from people trying to be nice.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">Interviews Completed</li>
+        <li class="text-sm text-gray-600">Real Problems Discovered</li>
+        <li class="text-sm text-gray-600">False Positives Avoided</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    Learn Interview Techniques
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+      <!-- BEGIN app/components/tool_card_component.html.erb --><div id="landing_page" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">Landing Page Validation</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-gray-100 text-gray-800">
+      Validation Tools
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">Build a simple page to test demand before building your product. Measure real interest through email signups or pre-orders.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">Conversion Rate</li>
+        <li class="text-sm text-gray-600">Email Signups</li>
+        <li class="text-sm text-gray-600">Pre-orders / Commitments</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    Design Your Landing Page
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+      <!-- BEGIN app/components/tool_card_component.html.erb --><div id="copywriting" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">Conversion Copywriting</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-gray-100 text-gray-800">
+      Validation Tools
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">Framework for writing clear, compelling copy that converts visitors into customers using proven psychological triggers.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">Message Clarity Score</li>
+        <li class="text-sm text-gray-600">Value Prop Strength</li>
+        <li class="text-sm text-gray-600">CTA Conversion Rate</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    Improve Your Copy
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+      <!-- BEGIN app/components/tool_card_component.html.erb --><div id="spin_selling" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">SPIN Selling Framework</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-gray-100 text-gray-800">
+      Validation Tools
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">B2B sales methodology using Situation, Problem, Implication, and Need-payoff questions to uncover customer needs.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">Discovery Call Quality</li>
+        <li class="text-sm text-gray-600">Needs Identified</li>
+        <li class="text-sm text-gray-600">Conversion to Proposal</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    Master SPIN Questions
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+      <!-- BEGIN app/components/tool_card_component.html.erb --><div id="growth_validation" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300" data-controller="accordion">
+  <div class="flex justify-between items-start mb-3">
+    <h3 class="text-xl font-bold text-gray-900">Growth &amp; Validation Loops</h3>
+    <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-gray-100 text-gray-800">
+      Validation Tools
+    </span>
+  </div>
+
+  <p class="text-gray-700 mb-4">Build systems to continuously test assumptions, measure what matters, and create feedback loops that drive sustainable growth.</p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-gray-600 mb-2">Key Metrics:</h4>
+    <ul class="list-disc list-inside space-y-1">
+        <li class="text-sm text-gray-600">Weekly Active Experiments</li>
+        <li class="text-sm text-gray-600">Learning Velocity</li>
+        <li class="text-sm text-gray-600">Growth Loop Strength</li>
+    </ul>
+  </div>
+
+  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+    Build Your Growth System
+  </button>
+</div>
+<!-- END app/components/tool_card_component.html.erb -->
+  </div>
+
+  <!-- Categories Legend -->
+  <div class="mt-12 p-6 bg-gray-50 rounded-lg">
+    <h3 class="text-lg font-semibold text-gray-900 mb-4">Framework Categories</h3>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div class="flex items-center space-x-2">
+          <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+          <span class="text-sm text-gray-700">Growth Engines</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+          <span class="text-sm text-gray-700">Market Strategy</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+          <span class="text-sm text-gray-700">Financial Backbone</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+          <span class="text-sm text-gray-700">North Star Kpis</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+          <span class="text-sm text-gray-700">Impact Metrics</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+          <span class="text-sm text-gray-700">Decision Gates</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+          <span class="text-sm text-gray-700">Validation Tools</span>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- END app/views/walkthrough/index.html.erb -->
+  
+
+</body></html><!-- END app/views/layouts/application.html.erb -->

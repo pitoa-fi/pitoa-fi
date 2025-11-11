@@ -1,0 +1,232 @@
+<!DOCTYPE html><!-- BEGIN app/views/layouts/application.html.erb --><html><head>
+    <title>Pitoa</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="ztN6tKVv7e2Lg0gSimgKlewxzFszhS9lsd5Uvm9PE7H1YSWufaRzDZfGRE85MAAEINfpMLefx4pNNBGrBm0-mQ">
+    
+
+      <style>
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fade-in 0.6s ease-out;
+    }
+
+    .grid > * {
+      animation: fade-in 0.6s ease-out backwards;
+    }
+  </style>
+
+
+
+    <link rel="icon" href="../../icon.png" type="image/png">
+    <link rel="icon" href="../../icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../../icon.png">
+
+    <link rel="stylesheet" href="../../assets/application-6bfb772a.css" data-turbo-track="reload">
+<link rel="stylesheet" href="../../assets/application.tailwind-ee41ae41.css" data-turbo-track="reload">
+    <script src="../../assets/application-7385f116.js" data-turbo-track="reload" type="module"></script>
+  </head>
+
+  <body>
+    <!-- BEGIN app/views/wizard/start.html.erb --><div class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center px-4 py-12">
+  <div class="max-w-4xl w-full">
+    <!-- Hero Section -->
+    <div class="text-center mb-12 animate-fade-in">
+      <div class="inline-block mb-6">
+        <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
+          <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+        </div>
+      </div>
+
+      <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+        Find Your Traction Tools
+      </h1>
+
+      <p class="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+        A personalized toolkit to help you validate your startup idea, build the right product, and achieve real traction.
+      </p>
+    </div>
+
+    <!-- Stage Selection Cards -->
+    <div class="mb-8">
+      <h2 class="text-2xl font-semibold text-gray-900 text-center mb-8">
+        Where are you in your startup journey?
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+          <a class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-blue-500 transform hover:-translate-y-1" style="animation-delay: 0ms" href="../../wizard/journey?stage=idea">
+
+            <div class="flex items-start space-x-4">
+              <!-- Icon -->
+              <div class="flex-shrink-0">
+                <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <span class="text-2xl font-bold text-white">1</span>
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div class="flex-1">
+                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                  Idea Validation
+                </h3>
+                <p class="text-gray-600 leading-relaxed">
+                  You have an idea and need to validate if it's worth pursuing. Learn how to test assumptions and gather real insights.
+                </p>
+              </div>
+
+              <!-- Arrow -->
+              <div class="flex-shrink-0">
+                <svg class="w-6 h-6 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Hover Glow Effect -->
+            <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+</a>          <a class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-blue-500 transform hover:-translate-y-1" style="animation-delay: 100ms" href="../../wizard/journey?stage=mvp">
+
+            <div class="flex items-start space-x-4">
+              <!-- Icon -->
+              <div class="flex-shrink-0">
+                <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <span class="text-2xl font-bold text-white">2</span>
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div class="flex-1">
+                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                  Building MVP
+                </h3>
+                <p class="text-gray-600 leading-relaxed">
+                  You're building your first version. Discover frameworks to build fast, get early users, and iterate based on feedback.
+                </p>
+              </div>
+
+              <!-- Arrow -->
+              <div class="flex-shrink-0">
+                <svg class="w-6 h-6 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Hover Glow Effect -->
+            <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+</a>          <a class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-blue-500 transform hover:-translate-y-1" style="animation-delay: 200ms" href="../../wizard/journey?stage=traction">
+
+            <div class="flex items-start space-x-4">
+              <!-- Icon -->
+              <div class="flex-shrink-0">
+                <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <span class="text-2xl font-bold text-white">3</span>
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div class="flex-1">
+                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                  Early Traction
+                </h3>
+                <p class="text-gray-600 leading-relaxed">
+                  You have some users and need to prove the model works. Focus on metrics, retention, and finding product-market fit.
+                </p>
+              </div>
+
+              <!-- Arrow -->
+              <div class="flex-shrink-0">
+                <svg class="w-6 h-6 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Hover Glow Effect -->
+            <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+</a>          <a class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-blue-500 transform hover:-translate-y-1" style="animation-delay: 300ms" href="../../wizard/journey?stage=scaling">
+
+            <div class="flex items-start space-x-4">
+              <!-- Icon -->
+              <div class="flex-shrink-0">
+                <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <span class="text-2xl font-bold text-white">4</span>
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div class="flex-1">
+                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                  Scaling
+                </h3>
+                <p class="text-gray-600 leading-relaxed">
+                  Time to grow. Learn B2B sales techniques, copywriting, and growth loops to accelerate your traction.
+                </p>
+              </div>
+
+              <!-- Arrow -->
+              <div class="flex-shrink-0">
+                <svg class="w-6 h-6 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Hover Glow Effect -->
+            <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+</a>      </div>
+    </div>
+
+    <!-- Features Preview -->
+    <div class="mt-16 text-center">
+      <div class="inline-flex items-center space-x-8 text-sm text-gray-500">
+        <div class="flex items-center space-x-2">
+          <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+          </svg>
+          <span>6 Core Frameworks</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+          </svg>
+          <span>Interactive Guidance</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+          </svg>
+          <span>5-10 Minutes</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to All Tools Link -->
+    <div class="mt-12 text-center">
+      <a class="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors" href="../../all-tools">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+        View All 20 Tools
+</a>    </div>
+  </div>
+</div>
+
+<!-- END app/views/wizard/start.html.erb -->
+  
+
+</body></html><!-- END app/views/layouts/application.html.erb -->
