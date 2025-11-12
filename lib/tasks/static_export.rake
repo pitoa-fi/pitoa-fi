@@ -4,18 +4,29 @@ require "fileutils"
 require "nokogiri"
 
 namespace :static do
-  desc "Export streaming pages to docs/ for GitHub Pages"
+  desc "Export streaming pages to docs/ for GitHub Pages (run 'npm run build && npm run build:css' first)"
   task export: :environment do
     puts "Starting static export..."
 
-    # Build assets with npm (simpler than Rails precompile for static sites)
-    puts "\n1. Building assets with npm..."
-    system("npm run build && npm run build:css") || raise("Asset build failed")
+    # Verify assets are built
+    builds_dir = Rails.root.join("app", "assets", "builds")
+    unless File.exist?(File.join(builds_dir, "application.js")) &&
+           File.exist?(File.join(builds_dir, "application.css"))
+      puts "\n⚠️  ERROR: Assets not found in app/assets/builds/"
+      puts "Please run: npm run build && npm run build:css"
+      exit 1
+    end
 
-    # Create docs directory
+    # Create docs directory (preserve CNAME if it exists)
     docs_dir = Rails.root.join("docs")
-    FileUtils.rm_rf(docs_dir) if File.exist?(docs_dir)
+    cname_backup = nil
+    if File.exist?(docs_dir)
+      cname_path = File.join(docs_dir, "CNAME")
+      cname_backup = File.read(cname_path) if File.exist?(cname_path)
+      FileUtils.rm_rf(docs_dir)
+    end
     FileUtils.mkdir_p(docs_dir)
+    File.write(File.join(docs_dir, "CNAME"), cname_backup) if cname_backup
 
     # Initialize exporter
     exporter = StaticExporter.new(docs_dir)
@@ -93,36 +104,22 @@ class StaticExporter
     # Source directories
     builds_dir = Rails.root.join("app", "assets", "builds")
     images_dir = Rails.root.join("app", "assets", "images")
-    public_assets_dir = Rails.root.join("public", "assets")
     public_dir = Rails.root.join("public")
 
     # Target directories
     assets_target = File.join(@output_dir, "assets")
     FileUtils.mkdir_p(assets_target)
 
-    # Copy precompiled fingerprinted assets from public/assets if they exist
-    # This is the primary source for production-ready assets with fingerprints
-    if Dir.exist?(public_assets_dir)
-      Dir.glob("#{public_assets_dir}/**/*").each do |file|
+    # Copy non-fingerprinted assets from builds directory
+    # We use non-fingerprinted assets for GitHub Pages for simplicity
+    if Dir.exist?(builds_dir)
+      Dir.glob("#{builds_dir}/*").each do |file|
         next if File.directory?(file)
+        next if file.end_with?(".map") # Skip source maps
 
-        relative_path = Pathname.new(file).relative_path_from(public_assets_dir)
-        target = File.join(assets_target, relative_path)
-        FileUtils.mkdir_p(File.dirname(target))
+        target = File.join(assets_target, File.basename(file))
         FileUtils.cp(file, target)
-        puts "    ✓ Copied #{relative_path}"
-      end
-    else
-      # Fallback: Copy from builds if public/assets doesn't exist
-      puts "    ⚠ public/assets not found, copying from builds (no fingerprints)"
-      if Dir.exist?(builds_dir)
-        Dir.glob("#{builds_dir}/*").each do |file|
-          next if File.directory?(file)
-
-          target = File.join(assets_target, File.basename(file))
-          FileUtils.cp(file, target)
-          puts "    ✓ Copied #{File.basename(file)}"
-        end
+        puts "    ✓ Copied #{File.basename(file)}"
       end
     end
 
@@ -133,7 +130,7 @@ class StaticExporter
       FileUtils.cp_r("#{images_dir}/.", images_target) if Dir.children(images_dir).any?
     end
 
-    # Copy public files (icons, robots.txt, etc.) but skip HTML error pages and assets folder
+    # Copy public files (icons, robots.txt, etc.) but skip HTML error pages
     if Dir.exist?(public_dir)
       Dir.glob("#{public_dir}/*").each do |file|
         next if File.directory?(file)
@@ -160,12 +157,29 @@ class StaticExporter
         next unless value.start_with?("/")
         next if value.start_with?("//")
 
+        # Strip fingerprints from asset filenames for GitHub Pages
+        # e.g., /assets/application-abc123.js -> ./assets/application.js
+        value = strip_asset_fingerprint(value)
+
         rewritten = value == "/" ? prefix : "#{prefix}#{value.delete_prefix("/")}"
         node[attr] = rewritten
       end
     end
 
     document.to_html
+  end
+
+  def strip_asset_fingerprint(path)
+    # Match patterns like:
+    # - /assets/application-abc123.js -> /assets/application.js
+    # - /assets/application.tailwind-abc123.css -> /assets/application.css (remove .tailwind too)
+    if path.include?("application.tailwind")
+      # Special case: remove both .tailwind and fingerprint, merge into single application.css
+      path.gsub(%r{(/assets/application)\.tailwind(-[\da-f]+)?(\.\w+)}, '\1\3')
+    else
+      # Normal case: just remove fingerprint
+      path.gsub(%r{(/assets/[\w.]+)(-[\da-f]+)(\.\w+)}, '\1\3')
+    end
   end
 
   def relative_prefix_for(output_filename)
