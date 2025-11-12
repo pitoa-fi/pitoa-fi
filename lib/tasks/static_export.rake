@@ -8,6 +8,10 @@ namespace :static do
   task export: :environment do
     puts "Starting static export..."
 
+    # Build assets with npm (simpler than Rails precompile for static sites)
+    puts "\n1. Building assets with npm..."
+    system("npm run build && npm run build:css") || raise("Asset build failed")
+
     # Create docs directory
     docs_dir = Rails.root.join("docs")
     FileUtils.rm_rf(docs_dir) if File.exist?(docs_dir)
@@ -40,8 +44,11 @@ namespace :static do
     # Create .nojekyll file for GitHub Pages
     File.write(File.join(docs_dir, ".nojekyll"), "")
 
-    puts "Static export complete! Files written to #{docs_dir}"
-    puts "Test locally with: npx http-server docs"
+    puts "\n✅ Static export complete! Files written to #{docs_dir}"
+    puts "\nNext steps:"
+    puts "  1. Test locally: npx http-server docs"
+    puts "  2. Commit changes: git add docs && git commit -m 'Update static site'"
+    puts "  3. Push to GitHub: git push"
   end
 end
 
@@ -86,20 +93,36 @@ class StaticExporter
     # Source directories
     builds_dir = Rails.root.join("app", "assets", "builds")
     images_dir = Rails.root.join("app", "assets", "images")
+    public_assets_dir = Rails.root.join("public", "assets")
     public_dir = Rails.root.join("public")
 
     # Target directories
     assets_target = File.join(@output_dir, "assets")
     FileUtils.mkdir_p(assets_target)
 
-    # Copy compiled CSS and JS from builds
-    if Dir.exist?(builds_dir)
-      Dir.glob("#{builds_dir}/*").each do |file|
+    # Copy precompiled fingerprinted assets from public/assets if they exist
+    # This is the primary source for production-ready assets with fingerprints
+    if Dir.exist?(public_assets_dir)
+      Dir.glob("#{public_assets_dir}/**/*").each do |file|
         next if File.directory?(file)
 
-        target = File.join(assets_target, File.basename(file))
+        relative_path = Pathname.new(file).relative_path_from(public_assets_dir)
+        target = File.join(assets_target, relative_path)
+        FileUtils.mkdir_p(File.dirname(target))
         FileUtils.cp(file, target)
-        puts "    ✓ Copied #{File.basename(file)}"
+        puts "    ✓ Copied #{relative_path}"
+      end
+    else
+      # Fallback: Copy from builds if public/assets doesn't exist
+      puts "    ⚠ public/assets not found, copying from builds (no fingerprints)"
+      if Dir.exist?(builds_dir)
+        Dir.glob("#{builds_dir}/*").each do |file|
+          next if File.directory?(file)
+
+          target = File.join(assets_target, File.basename(file))
+          FileUtils.cp(file, target)
+          puts "    ✓ Copied #{File.basename(file)}"
+        end
       end
     end
 
@@ -110,7 +133,7 @@ class StaticExporter
       FileUtils.cp_r("#{images_dir}/.", images_target) if Dir.children(images_dir).any?
     end
 
-    # Copy public files (icons, robots.txt, etc.) but skip HTML error pages
+    # Copy public files (icons, robots.txt, etc.) but skip HTML error pages and assets folder
     if Dir.exist?(public_dir)
       Dir.glob("#{public_dir}/*").each do |file|
         next if File.directory?(file)
