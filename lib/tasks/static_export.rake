@@ -4,14 +4,29 @@ require "fileutils"
 require "nokogiri"
 
 namespace :static do
-  desc "Export streaming pages to docs/ for GitHub Pages"
+  desc "Export streaming pages to docs/ for GitHub Pages (run 'npm run build && npm run build:css' first)"
   task export: :environment do
     puts "Starting static export..."
 
-    # Create docs directory
+    # Verify assets are built
+    builds_dir = Rails.root.join("app", "assets", "builds")
+    unless File.exist?(File.join(builds_dir, "application.js")) &&
+           File.exist?(File.join(builds_dir, "application.css"))
+      puts "\n⚠️  ERROR: Assets not found in app/assets/builds/"
+      puts "Please run: npm run build && npm run build:css"
+      exit 1
+    end
+
+    # Create docs directory (preserve CNAME if it exists)
     docs_dir = Rails.root.join("docs")
-    FileUtils.rm_rf(docs_dir) if File.exist?(docs_dir)
+    cname_backup = nil
+    if File.exist?(docs_dir)
+      cname_path = File.join(docs_dir, "CNAME")
+      cname_backup = File.read(cname_path) if File.exist?(cname_path)
+      FileUtils.rm_rf(docs_dir)
+    end
     FileUtils.mkdir_p(docs_dir)
+    File.write(File.join(docs_dir, "CNAME"), cname_backup) if cname_backup
 
     # Initialize exporter
     exporter = StaticExporter.new(docs_dir)
@@ -40,8 +55,11 @@ namespace :static do
     # Create .nojekyll file for GitHub Pages
     File.write(File.join(docs_dir, ".nojekyll"), "")
 
-    puts "Static export complete! Files written to #{docs_dir}"
-    puts "Test locally with: npx http-server docs"
+    puts "\n✅ Static export complete! Files written to #{docs_dir}"
+    puts "\nNext steps:"
+    puts "  1. Test locally: npx http-server docs"
+    puts "  2. Commit changes: git add docs && git commit -m 'Update static site'"
+    puts "  3. Push to GitHub: git push"
   end
 end
 
@@ -92,10 +110,12 @@ class StaticExporter
     assets_target = File.join(@output_dir, "assets")
     FileUtils.mkdir_p(assets_target)
 
-    # Copy compiled CSS and JS from builds
+    # Copy non-fingerprinted assets from builds directory
+    # We use non-fingerprinted assets for GitHub Pages for simplicity
     if Dir.exist?(builds_dir)
       Dir.glob("#{builds_dir}/*").each do |file|
         next if File.directory?(file)
+        next if file.end_with?(".map") # Skip source maps
 
         target = File.join(assets_target, File.basename(file))
         FileUtils.cp(file, target)
@@ -137,12 +157,29 @@ class StaticExporter
         next unless value.start_with?("/")
         next if value.start_with?("//")
 
+        # Strip fingerprints from asset filenames for GitHub Pages
+        # e.g., /assets/application-abc123.js -> ./assets/application.js
+        value = strip_asset_fingerprint(value)
+
         rewritten = value == "/" ? prefix : "#{prefix}#{value.delete_prefix("/")}"
         node[attr] = rewritten
       end
     end
 
     document.to_html
+  end
+
+  def strip_asset_fingerprint(path)
+    # Match patterns like:
+    # - /assets/application-abc123.js -> /assets/application.js
+    # - /assets/application.tailwind-abc123.css -> /assets/application.css (remove .tailwind too)
+    if path.include?("application.tailwind")
+      # Special case: remove both .tailwind and fingerprint, merge into single application.css
+      path.gsub(%r{(/assets/application)\.tailwind(-[\da-f]+)?(\.\w+)}, '\1\3')
+    else
+      # Normal case: just remove fingerprint
+      path.gsub(%r{(/assets/[\w.]+)(-[\da-f]+)(\.\w+)}, '\1\3')
+    end
   end
 
   def relative_prefix_for(output_filename)
