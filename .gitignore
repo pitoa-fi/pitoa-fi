@@ -140,3 +140,4 @@ pnpm-debug.log*
 .cursorrules
 /.llama_index/
 /auto-gen-files/
+CLAUDE.md
