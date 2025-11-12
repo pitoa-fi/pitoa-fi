@@ -49,6 +49,9 @@ namespace :static do
       exporter.export_page(route[:path], route[:output])
     end
 
+    # Create fallback page for /wizard/journey with query params
+    exporter.create_journey_fallback
+
     # Copy assets
     exporter.copy_assets
 
@@ -142,6 +145,83 @@ class StaticExporter
     end
 
     puts "    ✓ Assets copied"
+  end
+
+  def create_journey_fallback
+    puts "  Creating fallback page for /wizard/journey..."
+
+    fallback_html = <<~HTML
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Redirecting - Pitoa.fi</title>
+        <style>
+          body {
+            font-family: system-ui, -apple-system, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 50%, #FAF5FF 100%);
+          }
+          .container {
+            text-align: center;
+            padding: 2rem;
+          }
+          .spinner {
+            border: 4px solid #E5E7EB;
+            border-top: 4px solid #3B82F6;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+          }
+          @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+          h1 {
+            color: #1F2937;
+            margin: 0 0 0.5rem;
+          }
+          p {
+            color: #6B7280;
+          }
+        </style>
+        <script>
+          // Redirect based on query parameter
+          const urlParams = new URLSearchParams(window.location.search);
+          const stage = urlParams.get('stage');
+          const validStages = ['idea', 'mvp', 'traction', 'scaling'];
+
+          if (stage && validStages.includes(stage)) {
+            // Redirect to the appropriate stage page
+            window.location.href = './' + stage + '/';
+          } else {
+            // No valid stage provided, redirect to start
+            window.location.href = '../start/';
+          }
+        </script>
+      </head>
+      <body>
+        <div class="container">
+          <div class="spinner"></div>
+          <h1>Redirecting...</h1>
+          <p>Taking you to your journey</p>
+        </div>
+      </body>
+      </html>
+    HTML
+
+    output_path = File.join(@output_dir, "wizard", "journey", "index.html")
+    FileUtils.mkdir_p(File.dirname(output_path))
+    File.write(output_path, fallback_html)
+
+    puts "    ✓ Created fallback at wizard/journey/index.html"
   end
 
   private
