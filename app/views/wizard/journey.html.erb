@@ -127,6 +127,16 @@
                 <%= render partial: "wizard/spin_selling_template" %>
               <% when "growth_validation" %>
                 <%= render partial: "wizard/growth_validation_template" %>
+              <% when "first_10_customers" %>
+                <%= render partial: "wizard/first_10_customers_template" %>
+              <% when "channel_testing" %>
+                <%= render partial: "wizard/channel_testing_template" %>
+              <% when "build_measure_learn" %>
+                <%= render partial: "wizard/build_measure_learn_template" %>
+              <% when "founder_led_sales" %>
+                <%= render partial: "wizard/founder_led_sales_template" %>
+              <% when "early_retention" %>
+                <%= render partial: "wizard/early_retention_template" %>
               <% end %>
             </div>
 
@@ -363,6 +373,176 @@
                            class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
                     <span class="flex-1 text-sm text-gray-700">
                       <strong>Measure & optimize weekly</strong> - Track K-factor/conversion/cycle time and improve one metric at a time
+                    </span>
+                  </label>
+
+                <% when "first_10_customers" %>
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="first_10_list"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Create list of 50 target customers</strong> with names, where they hang out, and why they'd want this
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="first_10_network"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Reach out to 20 people in your network</strong> - Text, email, or DM them about what you're building
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="first_10_acquire"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Get your first 10 customers this month</strong> - Track source, personally onboard each one
+                    </span>
+                  </label>
+
+                <% when "channel_testing" %>
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="channel_pick"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Pick 3-5 channels to test</strong> based on where your ICP spends time
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="channel_test"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Run 1-2 week tests for each channel</strong> - Track impressions, clicks, signups, CPA, and user quality
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="channel_double_down"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Double down on what works, kill what doesn't</strong> - Focus 80% of effort on your best channel
+                    </span>
+                  </label>
+
+                <% when "build_measure_learn" %>
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="bml_ship_weekly"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Ship one feature every week</strong> - Pick smallest version, build in 3-5 days, announce to users
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="bml_talk_users"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Talk to 5-10 users weekly</strong> about what you shipped - What worked? What didn't? Why?
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="bml_weekly_review"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Do weekly review</strong> - Document learnings, decide to double down/iterate/kill, plan next experiment
+                    </span>
+                  </label>
+
+                <% when "founder_led_sales" %>
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="sales_list"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Build list of 20 target customers</strong> - Names, companies, why they'd buy, warm intro paths
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="sales_outreach"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Send outreach messages and book 5 discovery calls</strong> - Keep it short, personal, value-focused
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="sales_close"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Close your first 3 deals this month</strong> - Document every objection, test 3 price points
+                    </span>
+                  </label>
+
+                <% when "early_retention" %>
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="retention_aha"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Find your aha moment</strong> - What action do retained users take that churned users don't?
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="retention_onboard"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Manually onboard first 50 users</strong> - 30-min calls, get them to aha moment in first session
+                    </span>
+                  </label>
+
+                  <label class="flex items-start space-x-3 p-3 bg-white rounded-xl hover:shadow-md transition-shadow cursor-pointer">
+                    <input type="checkbox"
+                           data-wizard-progress-target="completionCheckbox"
+                           data-action="change->wizard-progress#toggleActionItem"
+                           data-action-id="retention_track"
+                           class="mt-1 w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                    <span class="flex-1 text-sm text-gray-700">
+                      <strong>Track Day 1/7/30 retention by cohort</strong> - Improve retention week-over-week before scaling acquisition
                     </span>
                   </label>
 

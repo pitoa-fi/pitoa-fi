@@ -17,7 +17,7 @@ module ApplicationHelper
   def stage_description(stage_key)
     {
       "idea" => "You have an idea and need to validate if it's worth pursuing. Learn how to test assumptions and gather real insights.",
-      "mvp" => "You're building your first version. Discover frameworks to build fast, get early users, and iterate based on feedback.",
+      "mvp" => "Time to get your first customers. Ship fast, test distribution channels, and learn what makes people buy. Do things that don't scale.",
       "traction" => "You have some users and need to prove the model works. Focus on metrics, retention, and finding product-market fit.",
       "scaling" => "Time to grow. Learn B2B sales techniques, copywriting, and growth loops to accelerate your traction."
     }[stage_key] || "Select your current stage to get started."

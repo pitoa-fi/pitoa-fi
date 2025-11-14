@@ -209,7 +209,7 @@ tools:
     summary: One-page business model that helps you deconstruct your idea into its key assumptions across 9 building blocks.
     category: validation_tools
     wizard_priority: 1
-    wizard_stage: [idea, mvp]
+    wizard_stage: [idea]
     metrics:
       - Problem-Solution Fit
       - Unique Value Proposition
@@ -241,7 +241,7 @@ tools:
     summary: Build a simple page to test demand before building your product. Measure real interest through email signups or pre-orders.
     category: validation_tools
     wizard_priority: 3
-    wizard_stage: [idea, mvp]
+    wizard_stage: [idea]
     metrics:
       - Conversion Rate
       - Email Signups
@@ -289,7 +289,7 @@ tools:
     summary: Build systems to continuously test assumptions, measure what matters, and create feedback loops that drive sustainable growth.
     category: validation_tools
     wizard_priority: 6
-    wizard_stage: [mvp, traction, scaling]
+    wizard_stage: [traction, scaling]
     metrics:
       - Weekly Active Experiments
       - Learning Velocity
@@ -299,3 +299,116 @@ tools:
       Growth isn't about hacks - it's about building loops. A growth loop is where an input generates an output that creates more input.
       Examples: User invites friends (viral loop), content generates SEO traffic (content loop), paid ads fund more ads (paid loop).
       Combine with validation: every loop should test an assumption and generate learning.
+
+  - id: first_10_customers
+    name: Your First 10 Customers
+    summary: Manual, unscalable tactics to get your first real users. Do things that don't scale to learn what works.
+    category: validation_tools
+    wizard_priority: 1
+    wizard_stage: [mvp]
+    metrics:
+      - Customers Acquired
+      - Conversion Rate
+      - Time to First Customer
+      - Customer Feedback Sessions
+    cta: Start Acquiring Customers
+    description: |
+      Your first 10 customers won't come from ads or SEO. You need to get them manually, one by one. This is founder-led,
+      high-touch, and completely unscalable - and that's exactly the point. You're not trying to build a growth engine yet.
+      You're trying to learn who wants this, why they want it, and what makes them convert.
+
+      Tactics that work: Direct outreach to your network, post in communities where your ICP hangs out (Reddit, Slack, Discord),
+      cold email/LinkedIn if B2B, give free/discounted access in exchange for detailed feedback, personally onboard every single user,
+      ask for intros and referrals. Track everything: where they came from, why they signed up, what they do in the product.
+
+  - id: channel_testing
+    name: Distribution Channel Testing
+    summary: Test 3-5 acquisition channels quickly to find what works for your product. Focus beats spreading thin.
+    category: validation_tools
+    wizard_priority: 2
+    wizard_stage: [mvp, traction]
+    metrics:
+      - Channels Tested
+      - Cost per Acquisition
+      - Best Performing Channel
+      - User Quality Score
+    cta: Test Your Channels
+    description: |
+      Most startups fail because they build something nobody wants, or they build something people want but can't figure out
+      how to reach them. Channel testing is about rapidly testing different distribution methods to find your primary acquisition channel.
+
+      Test these in parallel (1-2 weeks each): Content marketing (blog, SEO), Social media (Twitter, LinkedIn, Reddit),
+      Product Hunt / Hacker News launches, Cold outreach (email, LinkedIn), Paid ads (Google, Meta, $100 budget),
+      Community building (Discord, Slack), Partnerships and integrations, Word of mouth / referrals.
+
+      For each channel, measure: Traffic/impressions, Signups, Activated users, Cost (time and money), Quality of users.
+      Double down on what works. Kill what doesn't.
+
+  - id: build_measure_learn
+    name: Build-Measure-Learn Loops
+    summary: Ship fast, measure what matters, learn from users, iterate weekly. Speed wins at the MVP stage.
+    category: validation_tools
+    wizard_priority: 3
+    wizard_stage: [mvp]
+    metrics:
+      - Cycle Time (idea → shipped)
+      - Features Shipped per Week
+      - User Feedback Sessions
+      - Features Killed
+    cta: Speed Up Your Iterations
+    description: |
+      The fastest way to find product-market fit is to shorten your Build-Measure-Learn cycle. Most founders build for months
+      without talking to users. The best founders ship weekly and talk to users daily.
+
+      Build: Pick ONE small feature or improvement. Build the scrappiest version possible. Ship it in 3-7 days max.
+      Measure: Track 1-3 key metrics. Talk to 5-10 users who tried the feature. What worked? What didn't? Why?
+      Learn: Document insights. Decide: double down, iterate, or kill it. Repeat weekly.
+
+      Red flags: Building for weeks without user feedback. Debating features internally. Waiting for "perfect" before shipping.
+      Good signs: Shipping every week. Users asking for features you just built. Killing features that don't work.
+
+  - id: founder_led_sales
+    name: Founder-Led Sales
+    summary: Close your first deals yourself. High-touch sales teach you positioning, objections, and what value resonates.
+    category: validation_tools
+    wizard_priority: 4
+    wizard_stage: [mvp, traction]
+    metrics:
+      - Sales Calls Completed
+      - Close Rate
+      - Deal Size
+      - Time to Close
+    cta: Start Selling
+    description: |
+      The founder must sell the first 10-50 deals. Not because you're good at sales, but because you need to learn what actually
+      makes people buy. Every objection teaches you something about your positioning. Every "yes" tells you what value resonates.
+
+      Process: Identify 20 target customers (warm intros > cold outreach). Book 30-min calls (not demos yet - discovery).
+      Ask about their current solution, pain points, budget, decision process. Present solution (15 mins max).
+      Handle objections (write them all down). Close or set next steps. Follow up relentlessly.
+
+      Early pricing tips: Charge something, even if low. Test 3 price points with different segments. Annual > monthly for cash flow.
+      Offer "founding customer" pricing with locked-in rates. Always ask "what would make this a no-brainer?"
+
+  - id: early_retention
+    name: Early Retention Focus
+    summary: Keep the users you get. At MVP stage, 10 retained users > 100 churned users. Build for your power users.
+    category: validation_tools
+    wizard_priority: 5
+    wizard_stage: [mvp, traction]
+    metrics:
+      - Day 1/7/30 Retention
+      - Weekly Active Users
+      - Power User Actions
+      - Churn Reasons
+    cta: Improve Retention
+    description: |
+      Retention is the most important metric at MVP stage. If users don't come back, nothing else matters. Don't focus on acquisition
+      until you have good retention. Benchmark: Day 1: 40%+, Week 1: 25%+, Month 1: 15%+ (varies by product).
+
+      How to improve retention: Talk to churned users (why'd you leave?). Talk to power users (why do you stay?).
+      Find the "aha moment" - what action predicts retention? Double down on getting users to that moment faster.
+      Manual onboarding for first 50 users. Weekly check-ins. Build features power users request.
+
+      Retention tactics: Onboarding emails (day 0, 3, 7). Push notifications for key actions. Weekly digest emails.
+      In-app prompts to complete core actions. Personal outreach when users go quiet. Make your product habit-forming.
